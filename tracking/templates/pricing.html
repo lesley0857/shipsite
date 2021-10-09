@@ -1,0 +1,74 @@
+{% extends "account/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    {% block content %}
+      <div style="background:green; border-radius:25px;
+                    display:flex; flex-direction:row;
+                    line-height:200px;justify-content:space-around;">
+             <!-- column 1 -->
+          <div style="border-radius:25px;background:red; display:flex;
+                   flex-basis:100px;justify-content:center;flex-direction:column;">
+               <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                  <h1 style="text_align:center;">free tier </h1>
+                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
+              </div>
+              <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
+               </div>
+          </div>
+
+             <!-- column 2 -->
+          <div style="border-radius:25px;background:red; display:flex;
+                   flex-basis:100px;justify-content:center;flex-direction:column;">
+               <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                  <h1 style="text_align:center;">free tier </h1>
+                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
+              </div>
+              <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
+               </div>
+          </div>
+
+              <!-- column 3 -->
+          <div style="border-radius:25px;background:red; display:flex;
+                   flex-basis:100px;justify-content:center;flex-direction:column;">
+               <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                  <h1 style="text_align:center;">free tier </h1>
+                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
+              </div>
+              <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
+               </div>
+          </div>
+
+              <!-- column 4 -->
+          <div style="border-radius:25px;background:red; display:flex;
+                   flex-basis:100px;justify-content:center;flex-direction:column;">
+               <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                  <h1 style="text_align:center;">free tier </h1>
+                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
+              </div>
+              <div style="background:green; display:flex;flex-basis:100px;
+                       justify-content:center;flex-direction:column;">
+                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
+               </div>
+          </div>
+
+
+      </div>
+    {% endblock %}
+</body>
+</html>

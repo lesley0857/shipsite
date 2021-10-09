@@ -1,0 +1,45 @@
+.ui-dialog.success-dialog{background:red;border-radius:25px;}
+
+#slides{
+
+        animation-name: slide-change;
+        animation-duration: 9s;
+        animation-delay : 4;
+        animation-iteration-count: infinite;
+  }
+
+
+ @keyframes slide-change {
+
+    0%{
+      display:flex;
+    line-height:350px;
+    justify-content:center;
+    flex-basis:80%;
+     background:url('../images/truckonroad.jpg');
+        background-size:cover;
+
+    }
+
+    50%{
+
+         display:flex;
+    line-height:350px;
+    justify-content:center;
+    flex-basis:80%;
+     background:url('../images/shiponsea1.jpg');
+        background-size:cover;
+    }
+
+    100%{
+
+    display:flex;
+    line-height:350px;
+    justify-content:center;
+    flex-basis:80%;
+     background:url('../images/comp-contpix1.jpg');
+        background-size:cover;
+    }
+
+
+ }

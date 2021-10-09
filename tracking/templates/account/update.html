@@ -1,0 +1,23 @@
+{% extends "account/base.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{%block content%}
+<body>
+<form method="POST" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-inline">
+  {% for i in form %}
+    {{i.label}}
+   {{i}}
+   {% endfor %}
+    </div>
+    <input type="submit" >
+</form>
+</body>
+{% endblock %}
+
+</html>

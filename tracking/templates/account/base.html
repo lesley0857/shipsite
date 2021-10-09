@@ -1,0 +1,379 @@
+{%load static%}
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap-grid.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap-reboot.min.css' %}">
+     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap.rtl.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/base.css/'%}" >
+
+        <link href="{% static 'javascriptt/jquery ui/jquery-ui.css'%}" rel="stylesheet">
+     <link href="{% static 'javascriptt/jquery ui/jquery-ui.structure.css'%}" rel="stylesheet">
+         <link href="{% static 'javascriptt/jquery ui/jquery-ui.theme.css'%}" rel="stylesheet">
+    <script src = '{% static "javascriptt/jquery.js" %}'></script>
+       <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
+
+
+
+    <title>{% block head_title %}{% endblock %}</title>
+
+
+              <!-- menu bar -->
+<div class="row" >
+<nav class="navbar navbar-expand-lg navbar-light bg-light bg-danger">
+  <div class="container-fluid bg-success">
+
+      <strong>Icon goes here:</strong>
+     <div>
+        {% if user.is_authenticated %}
+        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
+        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
+        {% else %}
+        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Sign In</a></li>
+        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+
+        {% endif %}
+     </div>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Others
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="#SHIPSAFE">About us</a></li>
+          </ul>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact Us</a>
+        </li>
+
+      </ul>
+      <form class="d-flex">
+        <input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+  </div>
+</nav>
+</div>
+    {% block extra_head %}
+    {% endblock %}
+  </head>
+
+
+  <body style="background:linear-gradient(to bottom,rgb(160, 181, 0),rgb(0, 0, 0));">
+
+
+
+
+    {% if messages %}
+    <div>
+      <strong>Messages:</strong>
+      <ul>
+        {% for message in messages %}
+        <li>{{message}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+
+           {% if V %}
+
+
+    {% else %}
+             <div id="accordion1" style="margin:5px 20px; display:flex; flex-direction:column;">
+                <div>CLICK FOR MORE</div>
+                 <div>
+                   {% block content %}
+                  {% endblock %}
+                 </div>
+             </div>
+      <script>$('#accordion1').accordion({
+                  collapsible:true,
+                  event:'mouseover',
+                  active:1,
+                  heightStyle:true
+             })
+            </script>
+    {% endif %}
+
+
+    {% block extra_body %}
+    {% endblock %}
+
+
+    <!-- block accorrdion does not extend -->
+    {% block accordion %}
+
+ <div style=" border-radius:25px;
+                display:flex; flex-direction:row;">
+     <div style="background:yellow; border-radius:25px;
+                display:flex; flex-direction:column; justify-content:space-around;">
+           <h3 style="margin:5px 15px;display:flex;justify-content:center;">WELCOME</h3>
+
+           <div style="margin:5px 15px;display:flex;justify-content:center;">
+                <img style="height:150px;" src="{% static 'css/images/clock1.png/'%}">
+           </div>
+           <div style="margin:5px 15px;display:flex;justify-content:center;">
+                <img style="height:150px;" src="{% static 'css/images/clock1.png/'%}">
+           </div>
+
+     </div>
+
+    <div style="background:grey; display:flex; flex-direction:column;">
+            <div>
+                <span><h3> PARTNER SHIPPING LINES </h3></span>
+            </div>
+
+          <!-- link to view containers -->
+          <div id="link-to-containers">
+             <div id="accordion" style="margin:5px 20px; display:flex; flex-direction:column;">
+
+            {% for i in containers %}
+                 <h3 id="{{i.name}}"> {{i}}</h3>
+                <div> {{i.description|safe}}
+                </div>
+           {%endfor%}
+     </div>
+    </div>
+  </div>
+
+<script>$('#accordion').accordion({
+              collapsible:true,
+              event:'mouseover',
+              active:1,
+              heightStyle:true
+         })
+</script>
+
+{% endblock accordion %}
+
+</div>
+
+      <!-- SLAIDES -->
+   <div style="
+         display:flex;  line-height:250px; line-width:80%;
+           justify-content:center;" >
+    <div id="slides" style="
+          display:flex; line-height:450px;justify-content:center; flex-basis:80%;">
+        <img style="opacity:0.3; display:flex; line-height:350px;flex-basis:100%;" src="{% static 'css/images/maersk-line-vector-logo.png/'%}">
+    </div>
+    </div>
+              <!-- SLAIDES END -->
+
+
+
+
+        <!-- FOUR PIX EXP-->
+<div style="background:white; display:flex;flex-direction :column; justify-content: center;">
+
+         <div style="display:flex; justify-content:flex-start;">
+             <h4>YOUR BENEFITS</h4>
+         </div>
+          <div style="display:flex; justify-content:center;">
+                         <img style="height:150px;" src="{% static 'css/images/clock1.png/'%}">
+         </div>
+         <div style="display:flex; justify-content:flex-start;">
+            <h4>FAST</h4>
+         </div>
+         <div style="display:flex; justify-content:flex-start;">
+             <h4>
+             <ul>
+                 <li>Get your quotes in less than 5 minutes</li>
+                 <li>Place your booking with just one click</li>
+                 <li>Benefit from 24/7 availability</li>
+             </ul>
+              </h4> <hr>
+         </div>
+
+             <div style="display:flex; justify-content:center;">
+                         <img style="height:150px;" src="{% static 'css/images/Easy.png/'%}">
+         </div>
+         <div style="display:flex; justify-content:flex-start;">
+            <h4>EASY</h4>
+         </div>
+        <div style="display:flex; justify-content:flex-start;">
+             <h4>
+             <ul>
+                 <li>Plan better with transparent pricing</li>
+                 <li>Easy-to-use tool with just a few simple steps.</li>
+                 <li>Convinient access to preious quotations.</li>
+             </ul>
+              </h4> <hr>
+         </div>
+
+             <div style="display:flex; justify-content:center;">
+                         <img style="height:150px;" src="{% static 'css/images/flexible1.jpg/'%}">
+         </div>
+         <div style="display:flex; justify-content:flex-start;">
+            <h4>FLEXIBLE</h4>
+         </div>
+        <div style="display:flex; justify-content:flex-start;">
+             <h4>
+             <ul>
+                 <li>Make informed decision about your cargo.</li>
+                 <li>Get quotes for port to port or door to door.</li>
+                 <li>Reliable shipping to 120 ports worldwide.</li>
+             </ul>
+              </h4> <hr>
+         </div>
+</div>
+        <!-- FOUR PIX EXP END -->
+
+
+  </body>
+
+
+  <script>
+  var searchlist = ['contact','Home'];
+  $('#searchbox').autocomplete(
+          { source:searchlist },
+            {minlength:3}
+    );
+</script>
+  <script src="{% static '/javascriptt/bootstrap/bootstrap.min.js' %}" ></script>
+  <script src="{% static '/javascriptt/jquery.js' %}" ></script>
+
+           <script src = '{% static "javascriptt/jquery.js" %}'></script>
+       <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
+
+       <!--footer-->
+    <footer style="height:300px;background:grey;">
+                <div id="contact" style="scale:0.5; display:flex; flex-direction :row;  justify-content: space-around;">
+
+                     <div style="height:50px;display:flex; flex-direction:row;">
+                         <img style="height:25px; width:100%; margin:15px 0px;" src="{% static 'css/images/gmail.png/'%}">
+                         <h3 style="color:blue; margin:15px 2px;">shipsafe1978@gmail.com</h3>
+                     </div>
+
+                     <div style="height:50px;display:flex; flex-direction:row;">
+                         <img style="height:25px; width:100%; margin:15px 0px;" src="{% static 'css/images/gmail.png/'%}">
+                         <h3 style="color:blue; margin:15px 2px;">shipsafe1978@gmail.com</h3>
+                     </div>
+
+                     <div style="height:50px;"><a href="#">
+                         <img style="height:25px; width:100%; width:100%; margin:15px 0px;" src="{% static 'css/images/fb.png/'%}"> </a>
+                     </div>
+                </div>
+     <div id="footer-div"  style=" display:flex;
+                      flex-direction :row;  justify-content: space-around;">
+         <!-- column 1-->
+         <div style=" line-height:300px;
+                        display: flex; flex-basis: 200px;">
+            <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static 'css/images/APL_logo_blue.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static 'css/images/22160346v8ry.jpg/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static 'css/images/maersk-line-vector-logo.png/'%}">
+             </div>
+          </div>
+        </div>
+
+         <!-- column 2-->
+        <div style=" line-height:300px;
+                        display: flex; flex-basis: 200px;">
+          <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static 'css/images/pil.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static 'css/images/hmm.png/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static 'css/images/brand.gif/'%}">
+             </div>
+          </div>
+        </div>
+        <!-- column 3-->
+         <div style=" line-height:300px;
+                        display: flex; flex-basis: 200px;">
+          <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static 'css/images/msc.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static 'css/images/dept for tr.png/'%}">
+             </div>
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static 'css/images/zim.png/'%}">
+             </div>
+          </div>
+        </div>
+         <!-- column 4-->
+        <div style=" display: flex; flex-basis: 200px;  ">
+            <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static 'css/images/APL_logo_blue.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static 'css/images/22160346v8ry.jpg/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static 'css/images/maersk-line-vector-logo.png/'%}">
+             </div>
+          </div>
+        </div>
+     </div>
+
+
+        <div style="margin:50px 0px;display:flex;flex-direction:row;
+                justify-content:space-around; line-height:40px;">
+            <div style="display:flex;flex-direction:row;justify-content:row;">
+               <ul>
+                   <span><h2>Services & Information</h2> </span>
+                   <li> <h4><a href="#contact">Route Finder</a></h4> </li>
+                   <li><h4><a href="#contact">Vessels</a></h4></li>
+                   <li><h4><a href="#contact">Operational Updates</a></h4></li>
+               </ul>
+            </div>
+
+            <div>
+               <ul>
+                   <span><h2>CARRER</h2> </span>
+                   <li><h4><a href="#contact">Working Ashore</a></h4></li>
+                   <li> <h4><a href="#contact">Working on Board</a></h4></li>
+                   <li><h4><a href="#contact">Vacancies</a></h4></li>
+               </ul>
+            </div>
+
+
+        </div>
+
+    </footer>
+</html>
