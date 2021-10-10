@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = false
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['shipsitee.herokuapp.com','127.0.0.1']
 
 
 # Application definition
@@ -107,9 +107,6 @@ DATABASES = {
     }
 }
 
-import dj_database_url
-db_from_env = dj_database_url.config(conn_max_age=600)
-DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -149,12 +146,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')  ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles/css/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/css/images')
 MEDIA_URL = '/images/'
 
 # Default primary key field type
@@ -172,6 +169,7 @@ EMAIL_HOST_PASSWORD = 'udoka12345'
 #SERVER_EMAIL = 'nwekelesley9@gmail.com'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 SITE_ID = 1
