@@ -142,11 +142,13 @@
           <div id="link-to-containers">
              <div id="accordion" style="margin:5px 20px; display:flex; flex-direction:column;">
 
+               {%if containers %}
             {% for i in containers %}
                  <h3 id="{{i.name}}"> {{i}}</h3>
                 <div> {{i.description|safe}}
                 </div>
            {%endfor%}
+                {%endif%}
      </div>
     </div>
   </div>
