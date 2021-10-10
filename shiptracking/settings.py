@@ -145,6 +145,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
 
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')  ]
@@ -167,8 +168,7 @@ EMAIL_HOST_PASSWORD = 'udoka12345'
 #SERVER_EMAIL = 'nwekelesley9@gmail.com'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-django_heroku.settings(locals())
+
 
 SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED=True
