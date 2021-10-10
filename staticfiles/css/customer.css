@@ -1,0 +1,99 @@
+
+
+#parcel_tracking_id_div{
+   margin:20px 5px;
+}
+
+#container_tracking_id_div{
+    margin:20px 5px;
+    width:550px;
+}
+
+#container-item-table-div{
+         margin:20px 5px;
+
+         display:grid;
+
+      justify-content:center;
+  }
+
+#customer-container-table-div{
+     margin:20px 5px;
+      display:grid;
+      justify-content:center;
+  }
+
+#ready-containers-div{
+
+      display:grid;
+      justify-content:center;
+  }
+
+ .cont{
+   display:flex;
+  margin:10px 20px;
+ }
+
+ .map {
+     display:flex;
+     align-content:evenly;
+
+ }
+
+ .btn-containers {
+    background-color:yellow;
+ }
+
+ .cr_cont_obj_btn {
+       background-color: red;
+       border-color:black;
+
+     }
+ .cr_cont_obj_btn:hover {
+       background-color: green;
+       transform:scale(1.5);
+
+     }
+
+
+#cr_cont_obj_btn_div{
+
+ height:scale;
+   margin:20px 10px;
+       display:flex;
+     align-items:center;
+             flex-shrink:3;
+       flex-direction:column;
+
+}
+
+#link-to-containers{
+
+    display:flex;
+       flex-direction:column;
+       align-items:flex-start;
+}
+
+ @keyframes bk-change {
+
+    0%{
+        height:900px 600px;;
+        background:url('../images/comp-contpix.jpg');
+        background-size:cover;
+
+    }
+
+    50%{
+    height:900px 600px;
+        background:url('../images/truckload.jpeg');
+        background-size:cover;
+    }
+
+    100%{
+    height:900px 600px;;
+         background:url('../images/planeload.jpg');
+        background-size:cover;
+    }
+
+
+ }

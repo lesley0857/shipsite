@@ -52,8 +52,8 @@ class customer_container(models.Model):
     user = models.ForeignKey(User,on_delete=models.CASCADE,null=True)
     container = models.ForeignKey(Container,on_delete=models.CASCADE,null=True)
     tracking_number =  models.CharField(null=True, max_length=200)
-    longitude = models.IntegerField(max_length=6,null=True)
-    latitude = models.IntegerField(max_length=6, null=True)
+    longitude = models.IntegerField(null=True)
+    latitude = models.IntegerField( null=True)
 
     def __str__(self):
 
@@ -77,8 +77,8 @@ class container_item(models.Model):
     name = models.CharField(null=True,max_length=200)
     description = models.CharField(null=True,max_length=200)
     tracking_number = models.CharField(null=True, max_length=200)
-    longitude = models.IntegerField(max_length=6, null=True)
-    latitude = models.IntegerField(max_length=6, null=True)
+    longitude = models.IntegerField( null=True)
+    latitude = models.IntegerField(null=True)
 
     def __str__(self):
         return f"{self.container}{self.name}"
