@@ -22,7 +22,7 @@ Jinja2==2.11.3
 MarkupSafe==1.1.1
 Pillow==8.3.2
 psycopg2==2.8.6
-pygame==1.9.6
+
 PyJWT==2.1.0
 python-decouple==3.4
 python-engineio==4.2.1
