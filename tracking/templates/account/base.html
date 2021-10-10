@@ -25,7 +25,9 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-danger">
   <div class="container-fluid bg-success">
 
-      <strong>Icon goes here:</strong>
+      <div>
+            <img style=" margin:0px 5px;height:70px;width:70px;" src="{% static 'css/images/logo.jpg/'%}">
+      </div>
      <div>
         {% if user.is_authenticated %}
         <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
@@ -133,8 +135,8 @@
 
      </div>
 
-    <div style="background:grey; display:flex; flex-direction:column;">
-            <div>
+    <div style="border-radius:25px; background:grey; display:flex; flex-direction:column;">
+            <div style="margin:10px 0px;">
                 <span><h3> PARTNER SHIPPING LINES </h3></span>
             </div>
 
@@ -171,7 +173,8 @@
            justify-content:center;" >
     <div id="slides" style="
           display:flex; line-height:450px;justify-content:center; flex-basis:80%;">
-        <img style="opacity:0.3; display:flex; line-height:350px;flex-basis:100%;" src="{% static 'css/images/maersk-line-vector-logo.png/'%}">
+        <img style="opacity:0.3; display:flex; line-height:350px;flex-basis:100%;
+            " src="{% static 'css/images/logo.jpg/'%}">
     </div>
     </div>
               <!-- SLAIDES END -->

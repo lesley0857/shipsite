@@ -26,9 +26,8 @@
 </head>
 
 
-{% if show %}
-{% block content%}
 
+ {% block extra_body %}
 <div style=" border-radius:25px;
                 display:flex; flex-direction:row;">
    <div style="background:yellow; border-radius:25px;
@@ -273,9 +272,8 @@
    </div>
 </div>
 
-{% endblock content %}
+{% endblock extra_body %}
 
-{% endif %}
 
     {% block accordion %}
 
