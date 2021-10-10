@@ -107,6 +107,10 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
+
 
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
@@ -150,7 +154,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles/')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')  ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/css/')
+MEDIA_ROOT = os.path.join(BASE_DIR,'staticfiles/css/')
 MEDIA_URL = '/images/'
 
 # Default primary key field type
