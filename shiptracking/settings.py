@@ -107,6 +107,9 @@ DATABASES = {
     }
 }
 
+import dj_database_url
+db_from_env = dj_database_url.config(conn_max_age=600)
+DATABASES['default'].update(db_from_env)
 
 
 # Password validation
@@ -169,7 +172,7 @@ EMAIL_HOST_PASSWORD = 'udoka12345'
 #SERVER_EMAIL = 'nwekelesley9@gmail.com'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-WHITENOISE_MANIFEST_STRICT=False
+
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
