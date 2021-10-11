@@ -169,7 +169,7 @@ EMAIL_HOST_PASSWORD = 'udoka12345'
 #SERVER_EMAIL = 'nwekelesley9@gmail.com'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+#STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 
 SITE_ID = 1

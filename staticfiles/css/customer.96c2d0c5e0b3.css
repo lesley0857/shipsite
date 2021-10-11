@@ -78,20 +78,20 @@
 
     0%{
         height:900px 600px;;
-        background:url('../images/comp-contpix.jpg');
+        background:url("../images/comp-contpix.456c57d7a98d.jpg");
         background-size:cover;
 
     }
 
     50%{
     height:900px 600px;
-        background:url('../images/truckload.jpg');
+        background:url("../images/truckload.361cc82ae8cf.jpg");
         background-size:cover;
     }
 
     100%{
     height:900px 600px;;
-         background:url('../images/planeload.jpg');
+         background:url("../images/planeload.986cb78bdbab.jpg");
         background-size:cover;
     }
 
