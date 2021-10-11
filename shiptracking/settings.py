@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = false
+DEBUG = True
 
 ALLOWED_HOSTS = ['shipsitee.herokuapp.com','127.0.0.1']
 
@@ -151,7 +151,7 @@ STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR,'static')  ]
 
-MEDIA_ROOT = os.path.join(BASE_DIR,'static/css/images')
+MEDIA_ROOT = os.path.join(BASE_DIR,'static/images')
 MEDIA_URL = '/images/'
 
 # Default primary key field type
