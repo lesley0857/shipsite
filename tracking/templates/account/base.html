@@ -1,6 +1,8 @@
 {%load static%}
 <!DOCTYPE html>
 <html>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
   <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap.min.css' %}">
@@ -11,7 +13,7 @@
 
         <link href="{% static 'javascriptt/jquery ui/jquery-ui.css'%}" rel="stylesheet">
      <link href="{% static 'javascriptt/jquery ui/jquery-ui.structure.css'%}" rel="stylesheet">
-
+         <link href="{% static 'javascriptt/jquery ui/jquery-ui.theme.css'%}" rel="stylesheet">
     <script src = '{% static "javascriptt/jquery.js" %}'></script>
        <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
 
@@ -21,7 +23,7 @@
 
 
               <!-- menu bar -->
-<div class="row" >
+<div class="row" style="display:flex; flex-basis:100%;">
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-danger">
   <div class="container-fluid bg-success">
 
@@ -169,7 +171,7 @@
 
       <!-- SLAIDES -->
    <div style="
-         display:flex;  line-height:250px; line-width:80%;
+         display:flex;  line-height:250px; line-width:100%;
            justify-content:center;" >
     <div id="slides" style="
           display:flex; line-height:450px;justify-content:center; flex-basis:80%;">

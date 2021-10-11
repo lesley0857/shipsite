@@ -16,7 +16,7 @@
     line-height:350px;
     justify-content:center;
     flex-basis:80%;
-     background:url('./images/truckonroad.jpg');
+     background:url('/images/truckonroad.jpg');
         background-size:cover;
 
     }
@@ -27,7 +27,7 @@
     line-height:350px;
     justify-content:center;
     flex-basis:80%;
-     background:url('./images/shiponsea1.jpg');
+     background:url('/images/shiponsea1.jpg');
         background-size:cover;
     }
 
@@ -37,7 +37,7 @@
     line-height:350px;
     justify-content:center;
     flex-basis:80%;
-     background:url('./images/comp-contpix1.jpg');
+     background:url('/images/comp-contpix1.jpg');
         background-size:cover;
     }
 
