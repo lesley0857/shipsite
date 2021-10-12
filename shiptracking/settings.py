@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =False
 
 ALLOWED_HOSTS = ['shipsitee.herokuapp.com','127.0.0.1']
 
@@ -190,6 +190,6 @@ AWS_DEFAULT_ACL = None
 
 SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED=True
-LOGIN_REDIRECT_URL = 'https://shipsitee.herokuapp.com/accounts/login/'
+#LOGIN_REDIRECT_URL = 'https://shipsitee.herokuapp.com/accounts/login/'
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_EMAIL_VERIFICATION="mandatory"

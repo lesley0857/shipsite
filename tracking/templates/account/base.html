@@ -22,7 +22,7 @@
 
 
               <!-- menu bar -->
-<div class="row">
+<div class="row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );">
 <nav class="navbar navbar-expand-lg navbar-light bg-light bg-danger">
   <div class="container-fluid bg-success">
 
@@ -77,7 +77,7 @@
   </head>
 
 
-  <body style="background:linear-gradient(to bottom,rgb(160, 181, 0),rgb(0, 0, 0));">
+  <body style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );background:linear-gradient(to bottom,rgb(160, 181, 0),rgb(0, 0, 0));">
 
 
 
@@ -169,7 +169,7 @@
 </div>
 
       <!-- SLAIDES -->
-   <div style="
+   <div style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );
          display:flex;  line-height:250px; line-width:100%;
            justify-content:center;" >
     <div id="slides" style="
@@ -184,7 +184,7 @@
 
 
         <!-- FOUR PIX EXP-->
-<div style="background:white; display:flex;flex-direction :column; justify-content: center;">
+<div style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );background:white; display:flex;flex-direction :column; justify-content: center;">
 
          <div style="display:flex; justify-content:flex-start;">
              <h4>YOUR BENEFITS</h4>
@@ -257,7 +257,7 @@
        <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
 
        <!--footer-->
-    <footer style="height:300px;background:grey;">
+    <footer style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );height:300px;background:grey;">
                 <div id="contact" style="scale:0.5; display:flex; flex-direction :row;  justify-content: space-around;">
 
                      <div style="height:50px;display:flex; flex-direction:row;">
@@ -342,7 +342,7 @@
                  line-width: 100%; justify-content:center;">
             <div style="display:flex;
                   flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="{% static '/images/APL_logo_blue.png/'%}">
+            <img style=" height:150px;" src="data:image/png;base64,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">
              </div>
 
             <div style="display:flex;
