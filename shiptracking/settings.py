@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     #'sslserver',
     'tracking',
-
+     'storages',
 
     'allauth.socialaccount.providers.google',
     'django.contrib.sites',
@@ -163,18 +163,30 @@ MEDIA_URL = '/images/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-#EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT =  587
-#EMAIL_USE_TLS = 'True'
-EMAIL_HOST_USER = 'shipsafe1978@gmail.com'
-EMAIL_HOST_PASSWORD = 'udoka12345'
-#SERVER_EMAIL = 'nwekelesley9@gmail.com'
+EMAIL_USE_TLS = 'True'
+EMAIL_HOST_USER = 'nwekelesley@gmail.com'
+EMAIL_HOST_PASSWORD = 'fyxublfqaudrtjzy'
+#SERVER_EMAIL = 'nwekelesley@gmail.com'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE =  'storages.backends.s3boto3.S3Boto3Storage'
 
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+LINODE_BUCKET = 'shipsite'
+LINODE_BUCKET_REGION = 'eu-central-1'
+LINODE_BUCKET_ACCESS_KEY = 'MYDZ8FSL31HM51V9FFI7'
+LINODE_BUCKET_SECRET_KEY = 'UHbozLSdSrbe00ZmqNTVzYqeXbwyT1Fo5MnPMmCW'
 
+AWS_S3_ENDPOINT_URL = f'https://{LINODE_BUCKET_REGION}.linodeobjects.com'
+AWS_ACCESS_KEY_ID = LINODE_BUCKET_ACCESS_KEY
+AWS_SECRET_ACCESS_KEY = LINODE_BUCKET_SECRET_KEY
+AWS_S3_REGION_NAME = LINODE_BUCKET_REGION
+AWS_S3_USE_SSL = True
+AWS_STORAGE_BUCKET_NAME = LINODE_BUCKET
+AWS_DEFAULT_ACL = None 
 
 SITE_ID = 1
 ACCOUNT_EMAIL_REQUIRED=True
