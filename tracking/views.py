@@ -9,6 +9,7 @@ from django.contrib.auth.models import Group
 from django.http import HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from.forms import  *
+from django.contrib.admin.views.decorators import staff_member_required
 import datetime
 import folium
 from django.contrib import messages
@@ -269,7 +270,7 @@ def create_cust_container_view(request,id):
         c.save()
     context = {
                }
-    return render(request, 'account/base.html', context)
+    return render(request, 'account/index.html', context)
 
 
 def home_view(request):

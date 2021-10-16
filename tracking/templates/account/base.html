@@ -1,385 +1,360 @@
-{%load static%}
 <!DOCTYPE html>
-<html>
-   <meta charset="utf-8">
-   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+<html lang="en">
+<meta charset="utf-8" />
+{% load static %}
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap.min.css' %}">
-     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap-grid.min.css' %}">
-     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap-reboot.min.css' %}">
-     <link rel="stylesheet" href="{% static '/css/bootstrap/bootstrap.rtl.min.css' %}">
-      <link rel="stylesheet" href="{% static 'css/base.css/'%}" >
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>SHIPSAFE</title>
+    <meta name="description" content="" />
 
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/tooplate-style.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-    <script src = '{% static "javascriptt/jquery.js" %}'></script>
-       <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
-<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+      <script src = '{% static "javascriptt/jquery.js" %}'></script>
 
-
-    <title>{% block head_title %}{% endblock %}</title>
-
-
-              <!-- menu bar -->
-<div class="row" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );">
-<nav class="navbar navbar-expand-lg navbar-light bg-light bg-danger">
-  <div class="container-fluid bg-success">
-
-      <div>
-            <img style=" margin:0px 5px;height:70px;width:70px;" src="{% static '/images/logo.jpg/'%}">
-      </div>
-     <div>
-        {% if user.is_authenticated %}
-        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
-        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
-        {% else %}
-        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Sign In</a></li>
-        <li class="btn btn-info col-md-push-6"><a href="{% url 'account_signup' %}">Sign Up</a></li>
-
-        {% endif %}
-     </div>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="{% url 'pricing' %}">Pricing</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="{% url 'home' %}" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Others
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="#SHIPSAFE">About us</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact">Contact Us</a>
-        </li>
-
-      </ul>
-      <form class="d-flex">
-        <input id="searchbox" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
-</nav>
-</div>
     {% block extra_head %}
     {% endblock %}
+
   </head>
+<!--
+Tooplate 2116 Blugoon
+https://www.tooplate.com/view/2116-blugoon
+-->
+  <body>
+         {% if messages %}
+        <div>
+          <strong>Messages:</strong>
+          <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% endif %}
 
+    <div id="page-wraper">
+      <!-- Sidebar Menu -->
+      <div class="responsive-nav">
+        <i class="fa fa-bars" id="menu-toggle"></i>
+        <div id="menu" class="menu">
+          <i class="fa fa-times" id="menu-close"></i>
+          <div class="container">
+            <div class="image">
+              <a href="#"><img src="{% static 'images/logo.jpg'%}" alt="Blugoon by Tooplate" /></a>
+            </div>
+            <div class="author-content">
+              <h4>SHIPSAFE</h4>
+              <span> UK-SAFE-LOGISTICS </span>
+            </div>
+            <nav class="main-nav" >
+              <ul >
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'home' %}">About</a></li>
+                <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                <li><a href="#section4">Contact</a></li>
+                 {% if user.is_authenticated %}
+                  <li><a href="#parcel_tracking_id_form">Track a Shipment</a></li>
+                 <li><a href="#section4">Book Now</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                  {% else %}
+                  <li><a href="{% url 'account_signup' %}">Track a Shipment</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Sign In</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                  {% endif %}
+              </ul>
+            </nav>
+            <div class="social-network">
+              <ul class="soial-icons">
+                <li>
+                  <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-linkedin"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-dribbble"></i></a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-rss"></i></a>
+                </li>
+              </ul>
+            </div>
+            <div class="copyright-text">
+              <p>Copyright 2020 Blugoon<br>
+              Design: Tooplate</p>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <body style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );background:linear-gradient(to bottom,rgb(160, 181, 0),rgb(0, 0, 0));">
-
-
-
-
-    {% if messages %}
-    <div>
-      <strong>Messages:</strong>
-      <ul>
-        {% for message in messages %}
-        <li>{{message}}</li>
-        {% endfor %}
-      </ul>
-    </div>
-    {% endif %}
-
-           {% if V %}
-
-
-    {% else %}
-             <div id="accordion1" style="margin:5px 20px; display:flex; flex-direction:column;">
-                <div>CLICK FOR MORE</div>
-                 <div>
-                   {% block content %}
+           <section style= "display:flex;justify-content:center;flex-wrap: wrap; flex-basis:100%;"
+                    data-section="section1">
+               {% block content %}
                   {% endblock %}
-                 </div>
-             </div>
-      <script>$('#accordion1').accordion({
-                  collapsible:true,
-                  event:'mouseover',
-                  active:1,
-                  heightStyle:true
-             })
-            </script>
-    {% endif %}
+           </section>
+
+            {% block extra_body %}
+             {% endblock %}
 
 
-    {% block extra_body %}
-    {% endblock %}
+      <section class="section about-me" data-section="section1">
+        <div class="container">
+        <div class="top-header">
+        	<img src="{% static 'assets/images/aerobic-girls.jpg'%}" alt="aerobic girls" />
+        </div>
+          <div class="section-heading">
+          
+            <h2></h2>
+            <div class="line-dec"></div>
+            <span> SHIPSAFE is an independent privately owned freight forwarding, logistics management and international shipping company, that provides exceptional services to commercial clients, private individuals and agents worldwide.
 
+              SHIPSAFE  is one of the leading international providers of worldwide air, land and sea freight.
+              SHIPSAFE  was formed in 1998, and after 16 years of operation we now have offices and warehouses in London and Frankfurt.
 
-    <!-- block accorrdion does not extend -->
-    {% block accordion %}
+              ABOUT US
+              This has enabled our company to focus not only on sales and customer services, but also supervising of cargo loading/unloading. We offer our clients low-cost and high quality sea freight and logistic solutions both on import and export to all over the globe.
 
- <div style=" border-radius:25px;
-                display:flex; flex-direction:row;">
-     <div style="background:yellow; border-radius:25px;
-                display:flex; flex-direction:column; justify-content:space-around;">
-           <h3 style="margin:5px 15px;display:flex;justify-content:center;">WELCOME</h3>
+              We have a wide range of clients in different sectors and understand each client is unique with individual requirements. For this reason, we recruit the best individuals throughout the industry.
 
-           <div style="margin:5px 15px;display:flex;justify-content:center;">
-                <img style="height:150px;" src="{% static '/images/clock1.png/'%}">
+              We are always moving forward with the advancements in technology. Therefore, SHIPSAFE  has made major investments in information technology and we have the state of the art in-house cargo systems which enable us to offer an impeccable service for all forwarding and logistics requirements. In addition to this, we have formed associated partnerships in all major countries to give worldwide network coverage to our clients.
+
+              These partnerships are under the control and supervision of SHIPSAFE  to ensure no matter where you are, you receive the same exact quality standards that you would expect from SHIPSAFE .
+            </span>
+          </div>
+         </div>
+      </section>
+
+        <section class="section my-services" data-section="section2">
+            <div id="accordion" style="margin:5px 20px; display:flex; flex-direction:column;">
+                <h3>hello</h3>
+         
            </div>
-           <div style="margin:5px 15px;display:flex;justify-content:center;">
+        </section>
+
+      <section class="section my-services" data-section="section2">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Greatest Features</h2>
+            <div class="line-dec"></div>
+            <span>Praesent posuere fringilla elit, non maximus tellus posuere nec. Nunc eu sapien nec est elementum sodales.</span>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="service-item">
+                <i class="fa fa-area-chart"></i>
+                <h4>Top Performance</h4>
+                <p>Donec sit amet tempor quam. Maecenas nec aliquam leo, sed tincidunt urna.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-item">
+                <i class="fa fa-check-square-o"></i>
+                <h4>Trusted Service</h4>
+                <p>Etiam at porta nulla, et euismod enim. Nullam semper ipsum et dui scelerisque.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-item">
+                <i class="fa fa-question-circle"></i>
+                <h4>Need Help?</h4>
+                <p>Phasellus orci leo, elementum ac risus id, euismod porta lorem. Quisque feugiat.</p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-item">
+                <i class="fa fa-support"></i>
+                <h4>Quick Support</h4>
+                <p>Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+       <section class="section my-services" data-section="section2">
+        <div class="container">
+          <div class="section-heading">
+            <h2>YOUR BENEFITS</h2>
+            <div class="line-dec"></div>
+            <span> </span>
+          </div>
+          <div class="row">
+            <div class="col-md-6">
+              <div class="service-item">
                 <img style="height:150px;" src="{% static '/images/clock1.png/'%}">
-           </div>
+                <h4>FAST</h4>
+                 <ul>
+                 <li>Get your quotes in less than 5 minutes</li>
+                 <li>Place your booking with just one click</li>
+                 <li>Benefit from 24/7 availability</li>
+                 </ul>
+                <p>
 
-     </div>
-
-    <div style="border-radius:25px; background:grey; display:flex; flex-direction:column;">
-            <div style="margin:10px 0px;">
-                <span><h3> PARTNER SHIPPING LINES </h3></span>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-item">
+               <img style="height:150px;" src="{% static '/images/Easy.png/'%}">
+                <h4>EASY</h4>
+                <p>
+                <ul>
+                 <li>Plan better with transparent pricing</li>
+                 <li>Easy-to-use tool with just a few simple steps.</li>
+                 <li>Convinient access to preious quotations.</li>
+                </ul>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6">
+              <div class="service-item">
+                 <img style="height:150px;" src="{% static '/images/flexible1.jpg/'%}">
+                <h4>FLEXIBLE</h4>
+                <p>
+                  <ul>
+                 <li>Make informed decision about your cargo.</li>
+                 <li>Get quotes for port to port or door to door.</li>
+                 <li>Reliable shipping to 120 ports worldwide.</li>
+                </ul>
+                </p>
+              </div>
             </div>
 
-          <!-- link to view containers -->
-          <div id="link-to-containers">
-             <div id="accordion" style="margin:5px 20px; display:flex; flex-direction:column;">
+          </div>
+        </div>
+      </section>
 
-               {%if containers %}
-            {% for i in containers %}
-                 <h3 id="{{i.name}}"> {{i}}</h3>
-                <div> {{i.description|safe}}
-                </div>
-           {%endfor%}
-                {%endif%}
-     </div>
+
+      <section class="section contact-me" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Contact</h2>
+            <div class="line-dec"></div>
+            <span>Aenean a consectetur mi, sit amet consequat velit. Mauris vitae nunc viverra, mattis arcu quis, vestibulum eros. </span>
+          </div>
+          <div class="row">
+            <div class="right-content">
+              <div class="container">
+                <form id="contact" action="" method="post">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+
+                        <input name="name" type="text" class="form-control"
+                          id="name" placeholder="Your name..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="Your email..." required=""  />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control" 
+                          id="subject" placeholder="Subject..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <textarea name="message" rows="6" class="form-control"
+                          id="message" placeholder="Your message..." required="" ></textarea>
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          Send Message
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
-  </div>
+    <!-- Scripts -->
+    <!-- Bootstrap core JavaScript -->
+    <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
 
-<script>$('#accordion').accordion({
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+     <script>$('#accordion').accordion({
               collapsible:true,
               event:'mouseover',
               active:1,
               heightStyle:true
          })
-</script>
+      </script>
+    <script>
+      //according to loftblog tut
+      $(".main-menu li:first").addClass("active");
 
-{% endblock accordion %}
+      var showSection = function showSection(section, isAnimate) {
+        var direction = section.replace(/#/, ""),
+          reqSection = $(".section").filter(
+            '[data-section="' + direction + '"]'
+          ),
+          reqSectionPos = reqSection.offset().top - 0;
 
-</div>
+        if (isAnimate) {
+          $("body, html").animate(
+            {
+              scrollTop: reqSectionPos
+            },
+            800
+          );
+        } else {
+          $("body, html").scrollTop(reqSectionPos);
+        }
+      };
 
-      <!-- SLAIDES -->
-   <div style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );
-         display:flex;  line-height:250px; line-width:100%;
-           justify-content:center;" >
-    <div id="slides" style="
-          display:flex; line-height:450px;justify-content:center; flex-basis:80%;">
-        <img style="opacity:0.3; display:flex; line-height:350px;flex-basis:100%;
-            " src="{% static '/images/logo.jpg/'%}">
-    </div>
-    </div>
-              <!-- SLAIDES END -->
+      var checkSection = function checkSection() {
+        $(".section").each(function() {
+          var $this = $(this),
+            topEdge = $this.offset().top - 80,
+            bottomEdge = topEdge + $this.height(),
+            wScroll = $(window).scrollTop();
+          if (topEdge < wScroll && bottomEdge > wScroll) {
+            var currentId = $this.data("section"),
+              reqLink = $("a").filter("[href*=\\#" + currentId + "]");
+            reqLink
+              .closest("li")
+              .addClass("active")
+              .siblings()
+              .removeClass("active");
+          }
+        });
+      };
 
+      $(".main-menu").on("click", "a", function(e) {
+        e.preventDefault();
+        showSection($(this).attr("href"), true);
+      });
 
-
-
-        <!-- FOUR PIX EXP-->
-<div style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );background:white; display:flex;flex-direction :column; justify-content: center;">
-
-         <div style="display:flex; justify-content:flex-start;">
-             <h4>YOUR BENEFITS</h4>
-         </div>
-          <div style="display:flex; justify-content:center;">
-                         <img style="height:150px;" src="{% static '/images/clock1.png/'%}">
-         </div>
-         <div style="display:flex; justify-content:flex-start;">
-            <h4>FAST</h4>
-         </div>
-         <div style="display:flex; justify-content:flex-start;">
-             <h4>
-             <ul>
-                 <li>Get your quotes in less than 5 minutes</li>
-                 <li>Place your booking with just one click</li>
-                 <li>Benefit from 24/7 availability</li>
-             </ul>
-              </h4> <hr>
-         </div>
-
-             <div style="display:flex; justify-content:center;">
-                         <img style="height:150px;" src="{% static '/images/Easy.png/'%}">
-         </div>
-         <div style="display:flex; justify-content:flex-start;">
-            <h4>EASY</h4>
-         </div>
-        <div style="display:flex; justify-content:flex-start;">
-             <h4>
-             <ul>
-                 <li>Plan better with transparent pricing</li>
-                 <li>Easy-to-use tool with just a few simple steps.</li>
-                 <li>Convinient access to preious quotations.</li>
-             </ul>
-              </h4> <hr>
-         </div>
-
-             <div style="display:flex; justify-content:center;">
-                         <img style="height:150px;" src="{% static '/images/flexible1.jpg/'%}">
-         </div>
-         <div style="display:flex; justify-content:flex-start;">
-            <h4>FLEXIBLE</h4>
-         </div>
-        <div style="display:flex; justify-content:flex-start;">
-             <h4>
-             <ul>
-                 <li>Make informed decision about your cargo.</li>
-                 <li>Get quotes for port to port or door to door.</li>
-                 <li>Reliable shipping to 120 ports worldwide.</li>
-             </ul>
-              </h4> <hr>
-         </div>
-</div>
-        <!-- FOUR PIX EXP END -->
-
-
+      $(window).scroll(function() {
+        checkSection();
+      });
+    </script>
   </body>
-
-
-  <script>
-  var searchlist = ['contact','Home'];
-  $('#searchbox').autocomplete(
-          { source:searchlist },
-            {minlength:3}
-    );
-</script>
-  <script src="{% static '/javascriptt/bootstrap/bootstrap.min.js' %}" ></script>
-  <script src="{% static '/javascriptt/jquery.js' %}" ></script>
-
-           <script src = '{% static "javascriptt/jquery.js" %}'></script>
-       <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
-
-       <!--footer-->
-    <footer style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );height:300px;background:grey;">
-                <div id="contact" style="scale:0.5; display:flex; flex-direction :row;  justify-content: space-around;">
-
-                     <div style="height:50px;display:flex; flex-direction:row;">
-                         <img style="height:25px; width:100%; margin:15px 0px;" src="{% static '/images/gmail.png/'%}">
-                         <h3 style="color:blue; margin:15px 2px;">shipsafe1978@gmail.com</h3>
-                     </div>
-
-                     <div style="height:50px;display:flex; flex-direction:row;">
-                         <img style="height:25px; width:100%; margin:15px 0px;" src="{% static '/images/gmail.png/'%}">
-                         <h3 style="color:blue; margin:15px 2px;">shipsafe1978@gmail.com</h3>
-                     </div>
-
-                     <div style="height:50px;"><a href="#">
-                         <img style="height:25px; width:100%; width:100%; margin:15px 0px;" src="{% static '/images/fb.png/'%}"> </a>
-                     </div>
-                </div>
-     <div id="footer-div"  style=" display:flex;
-                      flex-direction :row;  justify-content: space-around;">
-         <!-- column 1-->
-         <div style=" line-height:300px;
-                        display: flex; flex-basis: 200px;">
-            <div style="display:flex;flex-direction:column;
-                 line-width: 100%; justify-content:center;">
-            <div style="display:flex;
-                  flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="{% static '/images/APL_logo_blue.png/'%}">
-             </div>
-
-            <div style="display:flex;
-                    flex-direction:row;flex-basis: 200px; justify-content:center;">
-             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/22160346v8ry.jpg/'%}">
-             </div>
-
-            <div style=" display:flex;flex-direction:row; justify-content:center;">
-             <img style="height:150px;" src="{% static '/images/maersk-line-vector-logo.png/'%}">
-             </div>
-          </div>
-        </div>
-
-         <!-- column 2-->
-        <div style=" line-height:300px;
-                        display: flex; flex-basis: 200px;">
-          <div style="display:flex;flex-direction:column;
-                 line-width: 100%; justify-content:center;">
-            <div style="display:flex;
-                  flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="{% static '/images/pil.png/'%}">
-             </div>
-
-            <div style="display:flex;
-                    flex-direction:row;flex-basis: 200px; justify-content:center;">
-             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/hmm.png/'%}">
-             </div>
-
-            <div style=" display:flex;flex-direction:row; justify-content:center;">
-             <img style="height:150px;" src="{% static '/images/brand.gif/'%}">
-             </div>
-          </div>
-        </div>
-        <!-- column 3-->
-         <div style=" line-height:300px;
-                        display: flex; flex-basis: 200px;">
-          <div style="display:flex;flex-direction:column;
-                 line-width: 100%; justify-content:center;">
-            <div style="display:flex;
-                  flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="{% static '/images/msc.png/'%}">
-             </div>
-
-            <div style="display:flex;
-                    flex-direction:row;flex-basis: 200px; justify-content:center;">
-             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/dept for tr.png/'%}">
-             </div>
-            <div style=" display:flex;flex-direction:row; justify-content:center;">
-             <img style="height:150px;" src="{% static '/images/zim.png/'%}">
-             </div>
-          </div>
-        </div>
-         <!-- column 4-->
-        <div style=" display: flex; flex-basis: 200px;  ">
-            <div style="display:flex;flex-direction:column;
-                 line-width: 100%; justify-content:center;">
-            <div style="display:flex;
-                  flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="data:image/png;base64,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">
-             </div>
-
-            <div style="display:flex;
-                    flex-direction:row;flex-basis: 200px; justify-content:center;">
-             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/22160346v8ry.jpg/'%}">
-             </div>
-
-            <div style=" display:flex;flex-direction:row; justify-content:center;">
-             <img style="height:150px;" src="{% static '/images/maersk-line-vector-logo.png/'%}">
-             </div>
-          </div>
-        </div>
-     </div>
-
-
-        <div style="margin:50px 0px;display:flex;flex-direction:row;
-                justify-content:space-around; line-height:40px;">
-            <div style="display:flex;flex-direction:row;justify-content:row;">
-               <ul>
-                   <span><h2>Services & Information</h2> </span>
-                   <li> <h4><a href="#contact">Route Finder</a></h4> </li>
-                   <li><h4><a href="#contact">Vessels</a></h4></li>
-                   <li><h4><a href="#contact">Operational Updates</a></h4></li>
-               </ul>
-            </div>
-
-            <div>
-               <ul>
-                   <span><h2>CARRER</h2> </span>
-                   <li><h4><a href="#contact">Working Ashore</a></h4></li>
-                   <li> <h4><a href="#contact">Working on Board</a></h4></li>
-                   <li><h4><a href="#contact">Vacancies</a></h4></li>
-               </ul>
-            </div>
-
-
-        </div>
-
-    </footer>
 </html>
