@@ -114,6 +114,15 @@ def error_404_view(request,exception):
     context = {}
     return render(request,'account/404.html',context)
 
+def report(request):
+    name = request.POST.get('name')
+    subject = request.POST.get('subject')
+    message = request.POST.get('message')
+
+    reports.objects.create(user_id=request.user.id,
+                          message = message,
+                          subject = subject)
+    return redirect('account_login')
 
 class customer_view(View):
 
@@ -231,6 +240,212 @@ class customer_view(View):
         return render(request, 'account/customer.html', context)
 
 
+
+
+class truck_views(View):
+
+
+    def get(self,request,*args,**kwargs):
+
+        if not self.request.user.is_authenticated:
+            return redirect('account_login')
+
+        a = request.user
+        mapbox_access_token = 'pk.eyJ1IjoibGVzbGV5b2x5IiwiYSI6ImNraDJpMnVieTAyYW4yeG5sOWwwM3ptaDYifQ.Eo6ubILTMV3m22AsegcqoA'
+
+        containers = Container.objects.all()
+        show = 'show'
+        cust_cont = customer_container.objects.filter(user__username=request.user.username)
+    # container_items = container_item.objects.filter(user=request.user.id)
+        m = folium.Map(location=[5,8])
+        m = m._repr_html_()
+        context = {
+            'm':m,
+            'show':show,
+            'cust_cont': cust_cont,
+            'containers': containers,
+            'mapbox_access_token': mapbox_access_token
+        }
+        return render(request, 'account/customer.html', context)
+
+    def post(self,request,*args,**kwargs):
+
+        if not self.request.user.is_authenticated:
+            return redirect('account_login')
+
+        t = request.POST.get('tracking_id')
+        s = request.POST.get('container_tracking_id')
+        print(s)
+
+        a = request.user
+        mapbox_access_token = 'pk.eyJ1IjoibGVzbGV5b2x5IiwiYSI6ImNraDJpMnVieTAyYW4yeG5sOWwwM3ptaDYifQ.Eo6ubILTMV3m22AsegcqoA'
+        # conn = request.COOKIES['last_conn']
+        # print(conn)
+
+        customer = Customer.objects.get(user=a)
+        print(customer.user.username)
+        containers = Container.objects.all()
+        container = Container.objects.get(id=1)
+        cust_cont = customer_container.objects.filter(user__username=customer.name)
+        container_items = container_item.objects.filter(tracking_number=t,user=request.user)
+        customer_containers = customer_container.objects.filter(tracking_number=s,user=request.user)
+        print(customer_containers)
+
+
+
+        if  not container_items and not customer_containers:
+            v='invalid value'
+            m = folium.Map(location=[5, 8])
+            m = m._repr_html_()
+            context = {"container_items": container_items,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+                       'v':v,
+                       'm': m,
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html',context)
+
+        elif not container_items and customer_containers:
+            m = folium.Map(location=[5, 8])
+            m = m._repr_html_()
+            context = {"container_items": container_items,
+                       'customer_containers': customer_containers,
+                       'm': m,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html', context)
+
+        elif container_items and not customer_containers:
+            print(container_items[0].longitude)
+            m = folium.Map(location=[5, 8])
+            folium.Marker(location=[5,8]).add_to(m)
+            m = m._repr_html_()
+            v='invalid value'
+            context = {"container_items": container_items,
+                       'customer_containers': customer_containers,
+                       'm': m,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+                        'p':v,
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html', context)
+
+
+
+       #container_items = container_item.objects.filter(tracking_number=t)
+        print(container_items)
+
+        context = {"container_items":container_items,
+                   'customer_containers': customer_containers,
+                   'm': m,
+            'cust_cont': cust_cont, "customer": customer,
+            'containers': containers,
+            'mapbox_access_token': mapbox_access_token}
+        return render(request, 'account/truck.html', context)
+
+
+class aircargo_views(View):
+
+    def get(self, request, *args, **kwargs):
+
+        if not self.request.user.is_authenticated:
+            return redirect('account_login')
+
+        a = request.user
+        mapbox_access_token = 'pk.eyJ1IjoibGVzbGV5b2x5IiwiYSI6ImNraDJpMnVieTAyYW4yeG5sOWwwM3ptaDYifQ.Eo6ubILTMV3m22AsegcqoA'
+
+        containers = Container.objects.all()
+        show = 'show'
+        cust_cont = customer_container.objects.filter(user__username=request.user.username)
+        # container_items = container_item.objects.filter(user=request.user.id)
+        m = folium.Map(location=[5, 8])
+        m = m._repr_html_()
+        context = {
+            'm': m,
+            'show': show,
+            'cust_cont': cust_cont,
+            'containers': containers,
+            'mapbox_access_token': mapbox_access_token
+        }
+        return render(request, 'account/customer.html', context)
+
+    def post(self, request, *args, **kwargs):
+
+        if not self.request.user.is_authenticated:
+            return redirect('account_login')
+
+        t = request.POST.get('tracking_id')
+        s = request.POST.get('container_tracking_id')
+        print(s)
+
+        a = request.user
+        mapbox_access_token = 'pk.eyJ1IjoibGVzbGV5b2x5IiwiYSI6ImNraDJpMnVieTAyYW4yeG5sOWwwM3ptaDYifQ.Eo6ubILTMV3m22AsegcqoA'
+        # conn = request.COOKIES['last_conn']
+        # print(conn)
+
+        customer = Customer.objects.get(user=a)
+        print(customer.user.username)
+        containers = Container.objects.all()
+        container = Container.objects.get(id=1)
+        cust_cont = customer_container.objects.filter(user__username=customer.name)
+        container_items = container_item.objects.filter(tracking_number=t, user=request.user)
+        customer_containers = customer_container.objects.filter(tracking_number=s, user=request.user)
+        print(customer_containers)
+
+        if not container_items and not customer_containers:
+            v = 'invalid value'
+            m = folium.Map(location=[5, 8])
+            m = m._repr_html_()
+            context = {"container_items": container_items,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+                       'v': v,
+                       'm': m,
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html', context)
+
+        elif not container_items and customer_containers:
+            m = folium.Map(location=[5, 8])
+            m = m._repr_html_()
+            context = {"container_items": container_items,
+                       'customer_containers': customer_containers,
+                       'm': m,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html', context)
+
+        elif container_items and not customer_containers:
+            print(container_items[0].longitude)
+            m = folium.Map(location=[5, 8])
+            folium.Marker(location=[5, 8]).add_to(m)
+            m = m._repr_html_()
+            v = 'invalid value'
+            context = {"container_items": container_items,
+                       'customer_containers': customer_containers,
+                       'm': m,
+                       'cust_cont': cust_cont, "customer": customer,
+                       'containers': containers,
+                       'p': v,
+                       'mapbox_access_token': mapbox_access_token}
+            return render(request, 'account/customer.html', context)
+
+        # container_items = container_item.objects.filter(tracking_number=t)
+        print(container_items)
+
+        context = {"container_items": container_items,
+                   'customer_containers': customer_containers,
+                   'm': m,
+                   'cust_cont': cust_cont, "customer": customer,
+                   'containers': containers,
+                   'mapbox_access_token': mapbox_access_token}
+        return render(request, 'account/aircargo.html', context)
+
+
+
 @login_required(login_url='account_login')
 def updatecustomer(request):
     cust = request.user.customer
@@ -244,7 +459,7 @@ def updatecustomer(request):
         return redirect('customer')
 
     context = {'form':form,'containers': containers}
-    return render(request, 'account/update.html', context)
+    return render(request, 'account/index.html', context)
 
 def pricing(request):
     containers = Container.objects.all()

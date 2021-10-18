@@ -11,6 +11,8 @@
     <!-- Bootstrap core CSS -->
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
     <!-- Additional CSS Files -->
+      <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all">
+      <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}" />
     <link rel="stylesheet" href="{% static 'assets/css/tooplate-style.css'%}" />
@@ -41,6 +43,8 @@ https://www.tooplate.com/view/2116-blugoon
         </div>
         {% endif %}
 
+
+
     <div id="page-wraper">
       <!-- Sidebar Menu -->
       <div class="responsive-nav">
@@ -62,14 +66,19 @@ https://www.tooplate.com/view/2116-blugoon
                 <li><a href="{% url 'pricing' %}">Pricing</a></li>
                 <li><a href="#section4">Contact</a></li>
                  {% if user.is_authenticated %}
-                  <li><a href="#parcel_tracking_id_form">Track a Shipment</a></li>
+                  <li><a href="#parcel_tracking_id_form">Track Your Parcel/Delivery</a></li>
                  <li><a href="#section4">Book Now</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'updatecustomer' %}">Update</a></li>
                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Ocean Fright</a></li>
+                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Land Fright</a></li>
+                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Air Fright</a></li>
                   {% else %}
-                  <li><a href="{% url 'account_signup' %}">Track a Shipment</a></li>
-                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Sign In</a></li>
-                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+                   <li><a href="{% url 'account_signup' %}">Track a Shipment</a></li>
+                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}">Sign In</a></li>
+                   <li class="btn btn-info col-md-push-6"><a href="{% url 'account_signup' %}">Sign Up</a></li>
+
                   {% endif %}
               </ul>
             </nav>
@@ -100,26 +109,114 @@ https://www.tooplate.com/view/2116-blugoon
         </div>
       </div>
 
-           <section style= "display:flex;justify-content:center;flex-wrap: wrap; flex-basis:100%;"
-                    data-section="section1">
-               {% block content %}
-                  {% endblock %}
-           </section>
 
             {% block extra_body %}
              {% endblock %}
+ <section class="section about-me" data-section="section1">
+
+          <div class="top-header">
+                {% block content %}
+                  {% endblock %}
+                <img src="{% static 'assets/images/aerobic-girls.jpg'%}" alt="aerobic girls" />
+            </div>
+
+       <h3>SERVICES</h3>
+       <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="left-text">
+                  <h4>OCEAN FREIGHT TRANSPORTATION </h4>
+                  <p>
+                      Book ocean freight shipping services easily with iContainers.
+                      Our platform offers you instant quotes, full price transparency and round-the-clock sea freight tracking. By using iContainers, you can:
+                  </p>
+                  <p>All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                  <div class="white-button">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="right-image">
+                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+       <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="left-text">
+                  <h4>AIR-CARGO </h4>
+                  <p>MAKING YOUR FREIGHT AND LOGISTICS REQUIREMENTS SEAMLESS AND EASY WITH WORLD-CLASS CARE.</p>
+                  <p>Jetex Air Cargo Charter Service can facilitate the safe transport and careful handling of fragile and sensitive cargo, including COVID-19 vaccines. Our expert team will find the optimal aircraft for your freight requirements, based on the volume, timings and destination. Jetex provides you with a one-stop shop customized solution every time.</p>
+                  <div class="white-button">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="right-image">
+                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+       <div class="right-image-post">
+            <div class="row">
+              <div class="col-md-8">
+                <div class="left-text">
+                  <h4>Our Global Inland Services</h4>
+                  <p>Every supply chain is unique, and so are your business requirements. We understand it, which is why we are committed to being an integrator of end-to-end logistics services. This implies offering different solutions that can cater to your every individual supply chain need.
+
+                    Our services – Maersk Inland Delivery and Maersk Inland Hub – are designed to address your broader logistics concerns. They are scalable according to your cargo, routes, business process or market changes.</p>
+                  <p>Your cargo journeys rarely begin or end at the ports. As a leading logistics integrator with an unrivalled global network, we offer end-to-end shipping solutions that are second-to-none. Maersk’s landside transportation connects key service hub points and major container ports with each other and the rest of the world. With rail coverage, trucking, barge and depots, you don’t need to transact with multiple suppliers or coordinate several handovers. Experience the comfort of end-to-end deliveries with just a single partner, and make your supply chain work to your competitive advantage..</p>
+                  <div class="white-button">
+
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4">
+                <div class="right-image">
+                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+   </section>
 
 
-      <section class="section about-me" data-section="section1">
-        <div class="container">
-        <div class="top-header">
-        	<img src="{% static 'assets/images/aerobic-girls.jpg'%}" alt="aerobic girls" />
-        </div>
-          <div class="section-heading">
-          
-            <h2></h2>
-            <div class="line-dec"></div>
-            <span> SHIPSAFE is an independent privately owned freight forwarding, logistics management and international shipping company, that provides exceptional services to commercial clients, private individuals and agents worldwide.
+
+
+
+      <section class="section about-me" data-section="section1" >
+       <div class="container">
+
+
+
+
+              <div id="slides" class="bgded overlay" style="">
+                <div id="pageintro" class="hoc clear"
+                       style="background:url('static/assets/images/aerobic-girls.jpg');
+                         background-size:cover;">
+                  <!-- ################################################################################################ -->
+               <article>
+                <h3 class="heading">You can trust the LTL solutions ABF Freight provides to deliver the shipping services you need</h3>
+                <div class="image" style="height:100;>
+                  <a href="#" ><img style="height:100;opacity:0.3;" src="{% static 'images/logo.jpg'%}" alt=" " /></a>
+                </div>
+                 <footer><a class="btn" href="#">Tristique vehicula</a></footer>
+               </article>
+    <!-- ################################################################################################ -->
+             </div>
+           </div>
+             <span style="margin: 15px 0px;"> WE are an independent privately owned freight forwarding, logistics management and international shipping company, that provides exceptional services to commercial clients, private individuals and agents worldwide.
 
               SHIPSAFE  is one of the leading international providers of worldwide air, land and sea freight.
               SHIPSAFE  was formed in 1998, and after 16 years of operation we now have offices and warehouses in London and Frankfurt.
@@ -133,21 +230,15 @@ https://www.tooplate.com/view/2116-blugoon
 
               These partnerships are under the control and supervision of SHIPSAFE  to ensure no matter where you are, you receive the same exact quality standards that you would expect from SHIPSAFE .
             </span>
-          </div>
-         </div>
+       </div>
+
       </section>
 
-        <section class="section my-services" data-section="section2">
-            <div id="accordion" style="margin:5px 20px; display:flex; flex-direction:column;">
-                <h3>hello</h3>
-         
-           </div>
-        </section>
 
       <section class="section my-services" data-section="section2">
         <div class="container">
           <div class="section-heading">
-            <h2>Greatest Features</h2>
+            <h2> Features</h2>
             <div class="line-dec"></div>
             <span>Praesent posuere fringilla elit, non maximus tellus posuere nec. Nunc eu sapien nec est elementum sodales.</span>
           </div>
@@ -194,8 +285,11 @@ https://www.tooplate.com/view/2116-blugoon
           <div class="row">
             <div class="col-md-6">
               <div class="service-item">
-                <img style="height:150px;" src="{% static '/images/clock1.png/'%}">
-                <h4>FAST</h4>
+
+                     <svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="shipping-fast" class="svg-inline--fa fa-shipping-fast fa-w-20" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 512">
+                         <path fill="currentColor" d="M624 352h-16V243.9c0-12.7-5.1-24.9-14.1-33.9L494 110.1c-9-9-21.2-14.1-33.9-14.1H416V48c0-26.5-21.5-48-48-48H112C85.5 0 64 21.5 64 48v48H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h272c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H40c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H8c-4.4 0-8 3.6-8 8v16c0 4.4 3.6 8 8 8h208c4.4 0 8 3.6 8 8v16c0 4.4-3.6 8-8 8H64v128c0 53 43 96 96 96s96-43 96-96h128c0 53 43 96 96 96s96-43 96-96h48c8.8 0 16-7.2 16-16v-32c0-8.8-7.2-16-16-16zM160 464c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm320 0c-26.5 0-48-21.5-48-48s21.5-48 48-48 48 21.5 48 48-21.5 48-48 48zm80-208H416V144h44.1l99.9 99.9V256z">
+                         </path></svg>
+                     <h4>FAST</h4>
                  <ul>
                  <li>Get your quotes in less than 5 minutes</li>
                  <li>Place your booking with just one click</li>
@@ -208,8 +302,10 @@ https://www.tooplate.com/view/2116-blugoon
             </div>
             <div class="col-md-6">
               <div class="service-item">
-               <img style="height:150px;" src="{% static '/images/Easy.png/'%}">
-                <h4>EASY</h4>
+                  <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                    <svg stlye="width:5px;" viewBox="0.5 -64 511.99998 511" xmlns="http://www.w3.org/2000/svg"><path d="m458.777344 90.457031v19.988281h-79.960938v-19.988281c0-11.046875 8.945313-19.992187 19.988282-19.992187h39.980468c11.046875 0 19.992188 8.945312 19.992188 19.992187zm0 0" fill="#ffe781"/><path d="m378.816406 110.445312h79.960938v99.953126h-79.960938zm0 0" fill="#424d63"/><path d="m72.964844 30.484375h142.929687v59.972656h-142.929687zm0 0" fill="#ffe781"/><path d="m235.886719 90.457031h102.949219v119.941407h-102.949219zm0 0" fill="#83c2b1"/><path d="m52.972656 90.457031v79.960938l142.933594 39.980469h39.980469v-119.941407zm0 0" fill="#fff"/><path d="m501.753906 210.398438c0 33.613281-16.832031 63.996093-39.109375 85.777343-17.230469-11.90625-38.011719-10.40625-54.34375 4.488281-18.160156 16.5625-41.808593 16.5625-59.972656 0-18.160156-16.5625-41.808594-16.5625-59.96875 0s-44.808594 16.5625-62.96875 0-41.808594-16.5625-59.972656 0c-18.160157 16.5625-44.808594 16.5625-62.96875 0-11.113281-10.136718-24.277344-14.0625-36.980469-11.804687-32.234375-29.257813-55.472656-71.484375-55.472656-118.441406h165.917968l19.992188 39.980469zm0 0" fill="#e87288"/><path d="m419.046875 240.382812c-5.519531 0-9.996094 4.476563-9.996094 9.996094 0 5.515625 4.476563 9.996094 9.996094 9.996094 5.515625 0 9.992187-4.480469 9.992187-9.996094 0-5.519531-4.476562-9.996094-9.992187-9.996094zm0 0"/><path d="m379.066406 240.382812c-5.519531 0-9.996094 4.476563-9.996094 9.996094 0 5.515625 4.476563 9.996094 9.996094 9.996094 5.515625 0 9.992188-4.480469 9.992188-9.996094 0-5.519531-4.476563-9.996094-9.992188-9.996094zm0 0"/><path d="m339.085938 240.382812c-5.519532 0-9.996094 4.476563-9.996094 9.996094 0 5.515625 4.476562 9.996094 9.996094 9.996094 5.515624 0 9.992187-4.480469 9.992187-9.996094 0-5.519531-4.476563-9.996094-9.992187-9.996094zm0 0"/><path d="m73.214844 220.390625c-5.519532 0-9.996094 4.480469-9.996094 9.996094 0 5.519531 4.476562 9.996093 9.996094 9.996093 5.515625 0 9.996094-4.476562 9.996094-9.996093 0-5.515625-4.480469-9.996094-9.996094-9.996094zm0 0"/><path d="m501.753906 200.402344h-32.984375v-109.945313c0-16.5625-13.421875-29.988281-29.984375-29.988281h-9.996094v-49.660156c0-5.011719-3.550781-9.488282-8.511718-10.203125-6.179688-.886719-11.476563 3.882812-11.476563 9.890625v49.972656h-9.996093c-16.558594 0-29.984376 13.425781-29.984376 29.988281v109.945313h-19.992187v-109.945313c0-5.519531-4.472656-9.996093-9.992187-9.996093h-112.945313v-49.976563c0-5.519531-4.476563-9.996094-9.996094-9.996094h-142.929687c-5.519532 0-9.996094 4.476563-9.996094 9.996094v49.976563h-9.996094c-5.519531 0-9.992187 4.476562-9.992187 9.996093v69.964844h-32.984375c-5.476563 0-9.99218775 4.40625-9.996094 9.882813-.03125 41.175781 17.046875 82.175781 47.289062 114.628906-4.0625 2.253906-7.9375 5.050781-11.542968 8.34375-7.285156 6.640625-18.25 9.710937-25.878906 9.808594-4.140626.050781-7.925782 2.554687-9.265626 6.472656-2.417968 7.054687 2.8125 13.644531 9.519532 13.515625 13.933594-.179688 29.277344-6.074219 39.097656-15.03125 14.757812-13.480469 32.625-12.640625 46.496094.003906 10.628906 9.695313 24.203125 15.035156 38.21875 15.035156 14.019531 0 27.589844-5.339843 38.21875-15.035156 14.34375-13.074219 32.160156-13.074219 46.503906 0 10.625 9.695313 24.199219 15.035156 38.21875 15.035156 14.015625 0 27.589844-5.339843 38.21875-15.035156 14.339844-13.074219 32.160156-13.074219 46.5 0 21.964844 20.035156 51.476562 20.03125 73.441406.003906 14.34375-13.082031 32.222656-13.03125 46.503906 0 10.21875 9.3125 26.050782 15.21875 40.347657 15.023438 5.519531-.074219 9.933593-4.609375 9.863281-10.128907-.074219-5.519531-4.613281-9.933593-10.125-9.859374-7.011719.125-16.828125-2.335938-24.257812-7.878907 22.257812-25.019531 34.390624-54.777343 34.382812-84.839843 0-5.507813-4.488281-9.964844-9.996094-9.964844zm-112.945312-79.960938h59.972656v79.960938h-59.972656zm9.996094-39.980468h39.980468c5.519532 0 9.996094 4.476562 9.996094 9.996093v9.992188h-59.972656v-9.992188c0-5.519531 4.476562-9.996093 9.996094-9.996093zm-69.964844 119.941406h-82.960938v-99.953125h82.960938zm-245.878906-159.921875h122.9375v39.980469h-122.9375zm-19.992188 59.96875h162.921875v99.953125h-23.808594l-17.226562-34.457032c-1.695313-3.386718-5.15625-5.523437-8.941407-5.523437h-112.945312zm398.6875 183.421875c-19.597656-9.535156-42.167969-6.089844-59.476562 9.6875-14.375 13.113281-32.238282 13.113281-46.617188 0-22.039062-20.097656-51.660156-20.078125-73.683594.054687-14.054687 12.847657-35.449218 12.847657-49.503906 0-22.023438-20.132812-51.644531-20.152343-73.683594-.054687-14.375 13.113281-35.246094 13.113281-49.625 0-11.832031-10.789063-25.996094-15.972656-40.386718-14.925782-28.550782-27.285156-45.894532-62.421874-48.644532-98.222656h149.738282l17.269531 34.542969c1.695312 3.394531 5.167969 5.4375 8.960937 5.4375h296.03125c-2.511718 22.238281-13.214844 44.726563-30.378906 63.480469zm0 0"/><path d="m408.800781 150.738281v19.367188c0 5.011719 3.554688 9.488281 8.511719 10.199219 6.179688.886718 11.476562-3.882813 11.476562-9.886719v-19.992188c0-6.003906-5.296874-10.773437-11.476562-9.886719-4.957031.710938-8.511719 5.1875-8.511719 10.199219zm0 0"/><path d="m156.175781 220.390625h-42.980469c-5.519531 0-9.996093 4.476563-9.996093 9.996094s4.476562 9.996093 9.996093 9.996093h42.980469c5.519531 0 9.992188-4.476562 9.992188-9.996093s-4.472657-9.996094-9.992188-9.996094zm0 0"/><path d="m502.132812 383.3125c5.519532-.074219 9.9375-4.605469 9.867188-10.125-.074219-5.476562-4.535156-9.863281-9.996094-9.863281-.042968 0-.089844 0-.136718 0-7.78125.128906-19.035157-2.890625-26.628907-9.808594-21.972656-20.027344-51.5-20.027344-73.476562 0-14.347657 13.078125-32.175781 13.078125-46.523438 0-21.972656-20.027344-51.5-20.027344-73.472656 0-14.027344 12.785156-35.40625 12.941406-49.398437.121094-22.03125-20.1875-51.703126-20.1875-73.734376 0-13.992187 12.820312-35.367187 12.664062-49.394531-.121094-21.976562-20.027344-51.5-20.027344-73.476562 0-7.25 6.609375-18.144531 9.679687-25.777344 9.804687-5.058594.085938-9.421875 3.921876-9.9296875 8.953126-.6093755 6.054687 4.1562505 11.097656 10.0742185 11.039062 13.9375-.175781 29.289063-6.074219 39.109375-15.023438 14.351563-13.078124 32.175781-13.078124 46.523438 0 10.632812 9.691407 24.214843 15.03125 38.238281 15.03125s27.605469-5.339843 38.238281-15.03125c14.347657-13.078124 32.175781-13.078124 46.523438 0 10.632812 9.691407 24.214843 15.03125 38.238281 15.03125s27.605469-5.339843 38.238281-15.03125c14.347657-13.078124 32.175781-13.078124 46.523438 0 21.976562 20.03125 51.503906 20.03125 73.476562 0 14.347657-13.078124 32.175781-13.078124 46.527344.003907 10.226563 9.3125 26.0625 15.242187 40.367187 15.019531zm0 0"/><path d="m9.984375 363.320312c7.628906-.125 18.527344-3.195312 25.777344-9.804687 21.972656-20.027344 51.5-20.027344 73.476562 0 14.023438 12.785156 35.402344 12.941406 49.394531.121094 22.03125-20.1875 51.703126-20.1875 73.734376 0 13.992187 12.820312 35.371093 12.664062 49.394531-.121094 21.976562-20.027344 51.503906-20.027344 73.476562 0 14.347657 13.078125 32.175781 13.078125 46.523438 0 21.972656-20.027344 51.503906-20.027344 73.476562 0 7.59375 6.917969 18.847657 9.9375 26.628907 9.808594h.136718c4.417969 0 8.183594 2.875 9.496094 6.871093v-54.933593c-.988281 4.414062-4.890625 7.746093-9.613281 7.808593-14.296875.199219-30.128907-5.707031-40.347657-15.019531-14.28125-13.035156-32.160156-13.082031-46.503906-.003906-21.964844 20.03125-51.476562 20.03125-73.441406 0-14.339844-13.074219-32.160156-13.078125-46.5 0-10.628906 9.695313-24.203125 15.03125-38.21875 15.03125-14.019531 0-27.59375-5.335937-38.21875-15.03125-14.34375-13.074219-32.160156-13.078125-46.503906 0-10.628906 9.695313-24.199219 15.03125-38.21875 15.03125-14.015625 0-27.589844-5.335937-38.21875-15.03125-13.871094-12.644531-31.738282-13.484375-46.496094-.003906-9.820312 8.953125-25.164062 14.851562-39.097656 15.027343-4.828125.09375-8.875-3.300781-9.871094-7.84375v55.886719c1.007812-4.445312 5.074219-7.714843 9.734375-7.792969zm0 0" fill="#cae9fc"/>
+                   </svg>
+                <h4>EASY SHIPPING</h4>
                 <p>
                 <ul>
                  <li>Plan better with transparent pricing</li>
@@ -221,7 +317,13 @@ https://www.tooplate.com/view/2116-blugoon
             </div>
             <div class="col-md-6">
               <div class="service-item">
-                 <img style="height:150px;" src="{% static '/images/flexible1.jpg/'%}">
+                 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+                    <svg   viewBox="0 0 256 256" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMidYMid">
+                        <g>
+                            <path d="M34.1333333,0 L221.866667,0 C240.7168,0 256,15.2832 256,34.1333333 L256,221.866667 C256,240.7168 240.7168,256 221.866667,256 L34.1333333,256 C15.2832,256 0,240.7168 0,221.866667 L0,34.1333333 C0,15.2832 15.2832,0 34.1333333,0 L34.1333333,0 Z" fill="#222222"></path>
+                            <path d="M49.7493333,155.127467 C49.7493333,166.1952 55.3898667,176.413867 65.0112,181.9136 L81.9712,191.778133 L81.9712,153.915733 L49.7493333,135.1552 L49.7493333,155.127467 L49.7493333,155.127467 Z M82.0608,64.2090667 L65.0453333,74.0864 C55.424,79.5861333 49.7450667,89.8048 49.7450667,100.872533 L49.7450667,120.068267 L81.9669333,138.824533 L81.9669333,101.751467 L114.816,82.9994667 L82.0608,64.2090667 L82.0608,64.2090667 Z M95.7781333,161.4208 L95.7781333,199.2832 L112.917333,209.250133 C122.4448,214.6944 133.7088,214.6944 143.236267,209.250133 L160.226133,199.2832 L160.226133,161.9584 L128.4736,180.445867 L95.7781333,161.4208 L95.7781333,161.4208 Z M174.037333,191.778133 L190.997333,181.9136 C200.618667,176.4096 206.2592,166.190933 206.2592,155.127467 L206.2592,135.6928 L174.037333,154.453333 L174.037333,191.778133 L174.037333,191.778133 Z M160.827733,56.7253333 L143.381333,46.7498667 C133.853867,41.3056 122.1504,41.3056 112.622933,46.7498667 L95.2746667,56.6656 L128.055467,75.456 L160.827733,56.7253333 L160.827733,56.7253333 Z M190.941867,74.0864 L173.9264,64.2730667 L141.2864,83.0165333 L174.0288,101.76 L174.0288,139.362133 L206.250667,120.605867 L206.250667,100.872533 C206.254933,89.8048 200.5632,79.5861333 190.941867,74.0864 L190.941867,74.0864 L190.941867,74.0864 Z M95.7781333,109.341867 L95.7781333,146.325333 L128.469333,165.354667 L160.221867,146.862933 L160.221867,109.3376 L128.046933,90.5557333 L95.7781333,109.341867 L95.7781333,109.341867 Z" fill="#FFFFFF"></path>
+                        </g>
+                    </svg>
                 <h4>FLEXIBLE</h4>
                 <p>
                   <ul>
@@ -243,12 +345,16 @@ https://www.tooplate.com/view/2116-blugoon
           <div class="section-heading">
             <h2>Contact</h2>
             <div class="line-dec"></div>
-            <span>Aenean a consectetur mi, sit amet consequat velit. Mauris vitae nunc viverra, mattis arcu quis, vestibulum eros. </span>
+            <span>
+               Reach out to us.
+
+            </span>
           </div>
           <div class="row">
             <div class="right-content">
               <div class="container">
-                <form id="contact" action="" method="post">
+                <form id="contact" action="{% url 'report' %}" method="post">
+                     {% csrf_token %}
                   <div class="row">
                     <div class="col-md-6">
                       <fieldset>
@@ -289,7 +395,102 @@ https://www.tooplate.com/view/2116-blugoon
           </div>
         </div>
       </section>
+
+
+     <section  class="section my-services" data-section="section2">
+             <footer style=" grid-template-columns:repeat(auto-fit,minmax(250px,1fr) );">
+
+     <div id="footer-div"  style=" display:flex;
+                      flex-direction :row;  justify-content: space-around;">
+         <!-- column 1-->
+         <div style=" line-height:300px;
+                        display: flex; flex-basis: 24%;">
+            <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static '/images/APL_logo_blue.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/22160346v8ry.jpg/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static '/images/maersk-line-vector-logo.png/'%}">
+             </div>
+          </div>
+        </div>
+
+         <!-- column 2-->
+        <div style=" line-height:300px;
+                        display: flex; flex-basis: 24%;">
+          <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static '/images/pil.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/hmm.png/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static '/images/brand.gif/'%}">
+             </div>
+          </div>
+        </div>
+        <!-- column 3-->
+         <div style=" line-height:300px;
+                        display: flex; flex-basis: 24%;">
+          <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="{% static '/images/msc.png/'%}">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/dept for tr.png/'%}">
+             </div>
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static '/images/zim.png/'%}">
+             </div>
+          </div>
+        </div>
+         <!-- column 4-->
+        <div style=" display: flex; flex-basis: 24%;  ">
+            <div style="display:flex;flex-direction:column;
+                 line-width: 100%; justify-content:center;">
+            <div style="display:flex;
+                  flex-direction:row;line-width: 100%; justify-content:center;">
+            <img style=" height:150px;" src="data:image/png;base64,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">
+             </div>
+
+            <div style="display:flex;
+                    flex-direction:row;flex-basis: 200px; justify-content:center;">
+             <img style="height:150px; width:100%; margin:30px 0px;" src="{% static '/images/22160346v8ry.jpg/'%}">
+             </div>
+
+            <div style=" display:flex;flex-direction:row; justify-content:center;">
+             <img style="height:150px;" src="{% static '/images/maersk-line-vector-logo.png/'%}">
+             </div>
+          </div>
+        </div>
+     </div>
+
+
+
+    </footer>
+     </section>
+
+
     </div>
+
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
@@ -306,6 +507,9 @@ https://www.tooplate.com/view/2116-blugoon
               heightStyle:true
          })
       </script>
+
+
+
     <script>
       //according to loftblog tut
       $(".main-menu li:first").addClass("active");

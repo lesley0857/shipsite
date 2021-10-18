@@ -27,7 +27,10 @@ a = path('accounts/profile/', customer_view.as_view(), name='customer')
 urlpatterns = [
 
     path('adminfreak/', admin.site.urls),
+    path('report/', report, name='report'),
     path('', home_view, name='home'),
+    path('Truckservices', truck_views.as_view(), name='truck'),
+    path('Aircargo', aircargo_views.as_view(), name='aircargo'),
     path('accounts/signup/<str:id>/', AccountSignupView.as_view(), name='account_signup'),
     #path('accounts/login/', customer_view, name='account_login'),
     a,

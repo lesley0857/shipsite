@@ -69,13 +69,16 @@ class customer_container(models.Model):
         #print(str(base64.b64encode(force_bytes(ini_token))))
         return token
 
-
+class reports(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    subject = models.CharField(null=True, max_length=200)
+    message = models.TextField(null=True)
 
 class container_item(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     container = models.ForeignKey(customer_container,on_delete=models.CASCADE,null=True)
     name = models.CharField(null=True,max_length=200)
-    description = models.CharField(null=True,max_length=200)
+    description = models.TextField(null=True)
     tracking_number = models.CharField(null=True, max_length=200)
     longitude = models.IntegerField( null=True)
     latitude = models.IntegerField(null=True)

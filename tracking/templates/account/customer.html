@@ -108,7 +108,7 @@
                         <div id='map' style='width:100%; float:center;
                              height: 400px; border-radius:25px; margin:15px 0px;'
                              class="map col-lg-push-3">
-                           {{m|safe}}
+                              {{m|safe}}
 
                         </div>
                       </div>
@@ -190,74 +190,84 @@
           </table>
 
 
+          <section class="section contact-me" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>Contact</h2>
+            <div class="line-dec"></div>
+            <span>
+               Reach out to us.
+
+            </span>
+          </div>
+          <div class="row">
+            <div class="right-content">
+              <div class="container">
+
+                <form id="contact" action="{% url 'report' %}" method="post">
+                     {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+
+                        <input name="name" type="text" class="form-control"
+                          id="name" placeholder="Your name..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="Your Address..." required=""  />
+                      </fieldset>
+                    </div>
+                        <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="City..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="State..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          Send Message
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+          <script>
+                 fn1 = function(name){
+
+               console.log(name)
+
+           $.ajax({
+           type:'GET',
+           url:'http://127.0.0.1:8000/create_cust_container/'+name+'/',
+           data:{'mes':'xup'},
+             success:function(){
+                 console.log('cool')}
+
+    })
+    }
+      </script>
+
+
        </section>
 
-   <section class="section about-me" data-section="section1">
-       <h4>SERVICES</h4>
-       <div class="right-image-post">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="left-text">
-                  <h4>OCEAN FREIGHT </h4>
-                  <p>You are allowed to use this template for commercial or personal websites. You are NOT allowed to redistribute this on template collection website. You can feature this template on your blog post.</p>
-                  <p>All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                  <div class="white-button">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="right-image">
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-       <div class="right-image-post">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="left-text">
-                  <h4>OCEAN FREIGHT </h4>
-                  <p>You are allowed to use this template for commercial or personal websites. You are NOT allowed to redistribute this on template collection website. You can feature this template on your blog post.</p>
-                  <p>All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                  <div class="white-button">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="right-image">
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-       <div class="right-image-post">
-            <div class="row">
-              <div class="col-md-8">
-                <div class="left-text">
-                  <h4>OCEAN FREIGHT </h4>
-                  <p>You are allowed to use this template for commercial or personal websites. You are NOT allowed to redistribute this on template collection website. You can feature this template on your blog post.</p>
-                  <p>All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
-                  <div class="white-button">
-                    <a href="#">Read More</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="right-image">
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-   </section>
 
 
 {% endblock extra_body %}
