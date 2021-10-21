@@ -2,73 +2,92 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-<head>
+
+     {% block extra_head %}
     <meta charset="UTF-8">
     <title>Title</title>
-</head>
-<body>
-    {% block content %}
-      <div style="background:green; border-radius:25px;
-                    display:flex; flex-direction:row;flex-basis:100%;
-                    line-height:200px;justify-content:space-around;">
-             <!-- column 1 -->
-          <div style="border-radius:25px;background:red; display:flex;
-                  line-width:25%;justify-content:center;flex-direction:column;">
-               <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                  <h1 style="text_align:center;">free tier </h1>
-                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
-              </div>
-              <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
-               </div>
-          </div>
 
-             <!-- column 2 -->
-          <div style="border-radius:25px;background:red; display:flex;
-                   line-width:25%;justify-content:center;flex-direction:column;">
-               <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                  <h1 style="text_align:center;">free tier </h1>
-                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
-              </div>
-              <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
-               </div>
-          </div>
+         <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+      <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all">
+            <link href="{% static 'layout/styles/framework.css' %}" rel="stylesheet" type="text/css" media="all">
+      <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/tooplate-style.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 
-              <!-- column 3 -->
-          <div style="border-radius:25px;background:red; display:flex;
-                  line-width:25%;justify-content:center;flex-direction:column;">
-               <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                  <h1 style="text_align:center;">free tier </h1>
-                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
-              </div>
-              <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
-               </div>
-          </div>
+      <script src = '{% static "javascriptt/jquery.js" %}'></script>
 
-              <!-- column 4 -->
-          <div style="border-radius:25px;background:red; display:flex;
-                   line-width:25%;justify-content:center;flex-direction:column;">
-               <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                  <h1 style="text_align:center;">free tier </h1>
-                  <h3 style="text_align:left;">free tier easy to acessanywhere </h3>
-              </div>
-              <div style="background:green; display:flex;flex-basis:100px;
-                       justify-content:center;flex-direction:column;">
-                     <img style="height:40px;width:50px;" src="{% static 'css/images/clock1.png/'%}">
-               </div>
-          </div>
-
-
-      </div>
     {% endblock %}
-</body>
+
+
+
+    {% block content %}
+       <div class="bgded overlay light" style="background-image:url('images/demo/backgrounds/01.png');">
+  <section id="services" class="hoc container clear">
+    <!-- ################################################################################################ -->
+    <div class="sectiontitle">
+      <p class="nospace font-xs">Quis leo hendrerit lectus morbi</p>
+      <h6 class="heading font-x2">Justo mauris tempus pharetra</h6>
+    </div>
+    <ul class="nospace group elements elements-three">
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+          <h6 class="heading">Sociis natoque penatibus</h6>
+          <p>Interdum at congue semper purus nullam quis odio id justo accumsan ullamcorper maecenas vel arcu nulla tincidunt elit ornare.</p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-paw"></i></a>
+          <h6 class="heading">Magnis parturient montes</h6>
+          <p>Urna proin venenatis eros viverra ultrices fringilla lectus urna consequat erat eget scelerisque ligula felis nec neque nam.</p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-sliders-h"></i></a>
+          <h6 class="heading">Nascetur ridiculus aenean</h6>
+          <p>Vitae ipsum vitae velit porttitor aliquam in quam aliquam ullamcorper sem a auctor dapibus nisi nunc vehicula nunc quis mattis.</p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-tty"></i></a>
+          <h6 class="heading">Ullamcorper neque phasellus</h6>
+          <p>Pede turpis at elit nunc at urna sed ligula vivamus vel erat at diam imperdiet pharetra quisque justo turpis mattis ut vitae.</p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-table"></i></a>
+          <h6 class="heading">Aliquet lacus nulla erat</h6>
+          <p>Tortor aenean leo ipsum elementum non cursus eu interdum ut risus proin risus nibh viverra eget lobortis feugiat egestas in nisl.</p>
+        </article>
+      </li>
+      <li class="one_third">
+        <article><a href="#"><i class="fas fa-hand-holding-usd"></i></a>
+          <h6 class="heading">Aliquam volutpat curabitur</h6>
+          <p>Fusce dignissim neque vitae justo aenean ac urna et leo posuere pretium nunc bibendum enim quis imperdiet elementum dui dolor.</p>
+        </article>
+      </li>
+    </ul>
+    <!-- ################################################################################################ -->
+  </section>
+</div>
+
+
+      <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+      <script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+      <script src="{% static 'layout/scripts/jquery.easypiechart.min.js' %}"></script>
+      <script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
+
+    <script src="{% static 'assets/js/isotope.min.js' %}"></script>
+    <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
+    <script src="{% static 'assets/js/lightbox.js' %}"></script>
+    <script src="{% static 'assets/js/custom.js' %}"></script>
+    {% endblock %}
+
 </html>

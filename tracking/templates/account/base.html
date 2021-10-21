@@ -12,6 +12,7 @@
     <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" />
     <!-- Additional CSS Files -->
       <link href="{% static 'css/base.css' %}" rel="stylesheet" type="text/css" media="all">
+            <link href="{% static 'layout/styles/framework.css' %}" rel="stylesheet" type="text/css" media="all">
       <link href="{% static 'layout/styles/layout.css' %}" rel="stylesheet" type="text/css" media="all">
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
     <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}" />
@@ -196,27 +197,25 @@ https://www.tooplate.com/view/2116-blugoon
 
 
       <section class="section about-me" data-section="section1" >
-       <div class="container">
+       <div id="slides" class="container">
 
 
 
 
-              <div id="slides" class="bgded overlay" style="">
-                <div id="pageintro" class="hoc clear"
-                       style="background:url('static/assets/images/aerobic-girls.jpg');
-                         background-size:cover;">
+              <div  class="bgded overlay" style="">
+                <div id="pageintro" class="hoc clear">
                   <!-- ################################################################################################ -->
-               <article>
+               <article >
                 <h3 class="heading">You can trust the LTL solutions ABF Freight provides to deliver the shipping services you need</h3>
-                <div class="image" style="height:100;>
+                <div  class="image" style="height:100;>
                   <a href="#" ><img style="height:100;opacity:0.3;" src="{% static 'images/logo.jpg'%}" alt=" " /></a>
                 </div>
-                 <footer><a class="btn" href="#">Tristique vehicula</a></footer>
+
                </article>
     <!-- ################################################################################################ -->
              </div>
            </div>
-             <span style="margin: 15px 0px;"> WE are an independent privately owned freight forwarding, logistics management and international shipping company, that provides exceptional services to commercial clients, private individuals and agents worldwide.
+             <p style="margin: 15px 0px;"> WE are an independent and privately owned freight forwarding, logistics management and international shipping company, that provides exceptional services to commercial clients, private individuals and agents worldwide.
 
               SHIPSAFE  is one of the leading international providers of worldwide air, land and sea freight.
               SHIPSAFE  was formed in 1998, and after 16 years of operation we now have offices and warehouses in London and Frankfurt.
@@ -229,7 +228,7 @@ https://www.tooplate.com/view/2116-blugoon
               We are always moving forward with the advancements in technology. Therefore, SHIPSAFE  has made major investments in information technology and we have the state of the art in-house cargo systems which enable us to offer an impeccable service for all forwarding and logistics requirements. In addition to this, we have formed associated partnerships in all major countries to give worldwide network coverage to our clients.
 
               These partnerships are under the control and supervision of SHIPSAFE  to ensure no matter where you are, you receive the same exact quality standards that you would expect from SHIPSAFE .
-            </span>
+            </p>
        </div>
 
       </section>
@@ -409,7 +408,7 @@ https://www.tooplate.com/view/2116-blugoon
                  line-width: 100%; justify-content:center;">
             <div style="display:flex;
                   flex-direction:row;line-width: 100%; justify-content:center;">
-            <img style=" height:150px;" src="{% static '/images/APL_logo_blue.png/'%}">
+            <img style=" height:150px;" src="{% static 'assets/images/APL_logo_blue.png/'%}">
              </div>
 
             <div style="display:flex;
@@ -495,6 +494,10 @@ https://www.tooplate.com/view/2116-blugoon
     <!-- Bootstrap core JavaScript -->
     <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
     <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+
+      <script src="{% static 'layout/scripts/jquery.backtotop.js' %}"></script>
+      <script src="{% static 'layout/scripts/jquery.easypiechart.min.js' %}"></script>
+      <script src="{% static 'layout/scripts/jquery.mobilemenu.js' %}"></script>
 
     <script src="{% static 'assets/js/isotope.min.js' %}"></script>
     <script src="{% static 'assets/js/owl-carousel.js' %}"></script>
