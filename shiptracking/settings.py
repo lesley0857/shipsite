@@ -27,7 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['shipsitee.herokuapp.com','127.0.0.1']
 
@@ -179,12 +179,15 @@ ACCOUNT_EMAIL_REQUIRED=True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_EMAIL_VERIFICATION="mandatory"
 
-LINODE_BUCKET = 'shipsitee'
+
+
+
+LINODE_BUCKET = 'shipsite'
 LINODE_BUCKET_REGION = 'eu-central-1'
 LINODE_BUCKET_ACCESS_KEY = 'TLXMCJ8PTG7XOIKOB3VB'
 LINODE_BUCKET_SECRET_KEY = 'zehuYwPayUB1TD6yHNqAVnCvYzfOxjzguZtmaYdV'
 
-AWS_S3_ENDPOINT_URL = f'https://shipsitee.{LINODE_BUCKET_REGION}.linodeobjects.com'
+AWS_S3_ENDPOINT_URL = f'https://{LINODE_BUCKET_REGION}.linodeobjects.com'
 AWS_ACCESS_KEY_ID = LINODE_BUCKET_ACCESS_KEY
 AWS_SECRET_ACCESS_KEY = LINODE_BUCKET_SECRET_KEY
 AWS_S3_REGION_NAME = LINODE_BUCKET_REGION

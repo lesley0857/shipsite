@@ -1,0 +1,176 @@
+{% extends "account/base.html" %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+{% block extra_head  %}
+    <meta charset="UTF-8">
+    <title>Shipsafe booking</title>
+ {% endblock %}
+
+
+     {% block content %}
+        <section class="section contact-me" data-section="section4">
+        <div class="container">
+          <div class="section-heading">
+            <h2>SENDER</h2>
+            <div class="line-dec"></div>
+            <span>
+               Reach out to us.
+
+            </span>
+          </div>
+          <div class="row">
+            <div class="right-content">
+              <div class="container">
+
+                <form id="contact" action="{% url 'report' %}" method="post">
+                     {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+
+                        <input name="name" type="text" class="form-control"
+                          id="name" placeholder="Your name..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="Your Address..." required=""  />
+                      </fieldset>
+                    </div>
+                       <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="City" required=""  />
+                      </fieldset>
+                      </div>
+                        <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="State" required=""  />
+                      </fieldset>
+                    </div>
+                        <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="Zip Code" required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="Phone" required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          Send Message
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+          <div class="container">
+          <div class="section-heading">
+            <h2>RECEIVER</h2>
+            <div class="line-dec"></div>
+            <span>
+               Reach out to us.
+
+            </span>
+          </div>
+          <div class="row">
+            <div class="right-content">
+              <div class="container">
+
+                <form id="contact" action="{% url 'report' %}" method="post">
+                     {% csrf_token %}
+                  <div class="row">
+                    <div class="col-md-6">
+                      <fieldset>
+
+                        <input name="name" type="text" class="form-control"
+                          id="name" placeholder="Your name..." required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="Your Address..." required=""  />
+                      </fieldset>
+                    </div>
+                       <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="City" required=""  />
+                      </fieldset>
+                      </div>
+                        <div class="col-md-6">
+                      <fieldset>
+                        <input name="email" type="text" class="form-control"
+                          id="email" placeholder="State" required=""  />
+                      </fieldset>
+                    </div>
+                        <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="Zip Code" required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <input name="subject" type="text" class="form-control"
+                          id="subject" placeholder="Phone" required="" />
+                      </fieldset>
+                    </div>
+                    <div class="col-md-12">
+                      <fieldset>
+                        <button type="submit" id="form-submit" class="button">
+                          Send Message
+                        </button>
+                      </fieldset>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+              {% for i in containers %}
+              <input type="button"
+                    id="{{i.id}}" value="{{i.name}}"  onclick="fn1(name='{{i.id}}', id='{{i.name}}')">
+
+              {% endfor %}
+
+
+                               <script>
+
+                 fn1 = function(name ,id){
+
+               console.log(id)
+
+           $.ajax({
+           type:'GET',
+           url:'http://127.0.0.1:8000/create_cust_container/'+name+'/',
+           data:{'mes':'xup'},
+             success:function(){
+                 alert(id+ ' ' + 'container booked successfully...')}
+
+    })
+    }
+      </script>
+
+      </section>
+    {% endblock %}
+
+
+</html>

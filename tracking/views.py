@@ -468,7 +468,11 @@ def pricing(request):
     context = {'containers': containers}
     return render(request, 'pricing.html', context)
 
+def booking(request):
+    containers = Container.objects.all()
 
+    context = {'containers': containers}
+    return render(request, 'account/booking.html', context)
 
 @login_required(login_url='account_login')
 def create_cust_container_view(request,id):
@@ -485,7 +489,7 @@ def create_cust_container_view(request,id):
         c.save()
     context = {
                }
-    return render(request, 'account/index.html', context)
+    return render(request, 'account/customer.html', context)
 
 
 def home_view(request):

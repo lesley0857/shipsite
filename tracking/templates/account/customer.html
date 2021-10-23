@@ -40,15 +40,22 @@
 
  {% block extra_body %}
 
-      <section class="section about-me" data-section="section1">
+      <section class=" " data-section="section1" style="
+    width: 55%;
+    right: 10%;
+    left: 35%;
+    position: relative;
+    min-height: 100vh;
+    padding-bottom: 60px;
+    border-bottom: 3px solid rgba(250, 250, 250, 0.25);">
 
             <form method="post" action="{%url 'customer'%}" id="parcel_tracking_id_form" >
-            <div class="form-group">
+            <div class="form-group" >
                     {% csrf_token%}
                     <label for="tracking_id"><h4>Parcel Tracking ID</h4></label>
-                    <input style=" border-radius:10px;" type="text" id="tracking_id" value=""  name="tracking_id">
+                    <input  type="text" id="tracking_id"   name="tracking_id">
                     <div >
-                        <input style=" border-radius:10px;" type="submit" id="submit_btn" class="btn btn-success  ">
+                        <input  type="submit" id="submit_btn" class="btn btn-success  ">
                     </div>
             </div>
             </form>
@@ -57,7 +64,7 @@
             <div class="form-group">
             {% csrf_token%}
             <label for="container_tracking_id"><h4><b>Container Tracking ID</b></h4></label>
-            <input type="text" id="container_tracking_id" value="" name="container_tracking_id">
+            <input type="text" id="container_tracking_id"  name="container_tracking_id">
             <input type="submit" id="submit_btn" class="btn btn-success">
             </div>
            </form>
@@ -190,166 +197,7 @@
           </table>
 
 
-          <section class="section contact-me" data-section="section4">
-        <div class="container">
-          <div class="section-heading">
-            <h2>SENDER</h2>
-            <div class="line-dec"></div>
-            <span>
-               Reach out to us.
-
-            </span>
-          </div>
-          <div class="row">
-            <div class="right-content">
-              <div class="container">
-
-                <form id="contact" action="{% url 'report' %}" method="post">
-                     {% csrf_token %}
-                  <div class="row">
-                    <div class="col-md-6">
-                      <fieldset>
-
-                        <input name="name" type="text" class="form-control"
-                          id="name" placeholder="Your name..." required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="Your Address..." required=""  />
-                      </fieldset>
-                    </div>
-                       <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="City" required=""  />
-                      </fieldset>
-                      </div>
-                        <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="State" required=""  />
-                      </fieldset>
-                    </div>
-                        <div class="col-md-12">
-                      <fieldset>
-                        <input name="subject" type="text" class="form-control"
-                          id="subject" placeholder="Zip Code" required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-12">
-                      <fieldset>
-                        <input name="subject" type="text" class="form-control"
-                          id="subject" placeholder="Phone" required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="button">
-                          Send Message
-                        </button>
-                      </fieldset>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-          <div class="container">
-          <div class="section-heading">
-            <h2>RECEIVER</h2>
-            <div class="line-dec"></div>
-            <span>
-               Reach out to us.
-
-            </span>
-          </div>
-          <div class="row">
-            <div class="right-content">
-              <div class="container">
-
-                <form id="contact" action="{% url 'report' %}" method="post">
-                     {% csrf_token %}
-                  <div class="row">
-                    <div class="col-md-6">
-                      <fieldset>
-
-                        <input name="name" type="text" class="form-control"
-                          id="name" placeholder="Your name..." required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="Your Address..." required=""  />
-                      </fieldset>
-                    </div>
-                       <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="City" required=""  />
-                      </fieldset>
-                      </div>
-                        <div class="col-md-6">
-                      <fieldset>
-                        <input name="email" type="text" class="form-control"
-                          id="email" placeholder="State" required=""  />
-                      </fieldset>
-                    </div>
-                        <div class="col-md-12">
-                      <fieldset>
-                        <input name="subject" type="text" class="form-control"
-                          id="subject" placeholder="Zip Code" required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-12">
-                      <fieldset>
-                        <input name="subject" type="text" class="form-control"
-                          id="subject" placeholder="Phone" required="" />
-                      </fieldset>
-                    </div>
-                    <div class="col-md-12">
-                      <fieldset>
-                        <button type="submit" id="form-submit" class="button">
-                          Send Message
-                        </button>
-                      </fieldset>
-                    </div>
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
-        </div>
-
-
-      </section>
-
-
-
-          <script>
-                 fn1 = function(name){
-
-               console.log(name)
-
-           $.ajax({
-           type:'GET',
-           url:'http://127.0.0.1:8000/create_cust_container/'+name+'/',
-           data:{'mes':'xup'},
-             success:function(){
-                 console.log('cool')}
-
-    })
-    }
-      </script>
-
-
-       </section>
-
+</section>
 
 
 {% endblock extra_body %}
