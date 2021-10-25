@@ -1,23 +1,54 @@
 {% extends "account/base.html" %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
-{%block content%}
-<body>
+  {% block extra_head %}
+    <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css'%}" rel="stylesheet" />
+    <!-- Additional CSS Files -->
+    <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900" rel="stylesheet" />
+    <link rel="stylesheet" href="{% static 'assets/css/fontawesome.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/tooplate-style.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/owl.css'%}" />
+    <link rel="stylesheet" href="{% static 'assets/css/lightbox.css'%}" />
+
+    <meta charset="UTF-8">
+    <title>SHIPSAFE</title>
+
+    <link href="{% static 'javascriptt/jquery ui/jquery-ui.css'%}" rel="stylesheet">
+     <link href="{% static 'javascriptt/jquery ui/jquery-ui.structure.css'%}" rel="stylesheet">
+
+
+      <script src = '{% static "javascriptt/jquery.js" %}'></script>
+             <script src = '{% static "javascriptt/jquery ui/jquery-ui.js" %}'></script>
+       <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+
+<script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
+<link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
+
+    {% endblock extra_head %}
+{% block content %}
+
 <form method="POST" action="" enctype="multipart/form-data">
     {% csrf_token %}
-    <div class="form-inline">
+    <div  style="margin:5px 30px;">
   {% for i in form %}
+
     {{i.label}}
-   {{i}}
+      {{i}}
+
    {% endfor %}
     </div>
     <input type="submit" >
 </form>
-</body>
+
 {% endblock %}
 
 </html>

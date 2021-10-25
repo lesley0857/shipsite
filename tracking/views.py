@@ -119,9 +119,10 @@ def report(request):
     subject = request.POST.get('subject')
     message = request.POST.get('message')
 
-    reports.objects.create(user_id=request.user.id,
+    reports.objects.create(user=request.user.id,
                           message = message,
                           subject = subject)
+    messages.info(request, 'Your message has been sent successfully....')
     return redirect('account_login')
 
 class customer_view(View):
@@ -459,7 +460,7 @@ def updatecustomer(request):
         return redirect('customer')
 
     context = {'form':form,'containers': containers}
-    return render(request, 'account/index.html', context)
+    return render(request, 'account/update.html', context)
 
 def pricing(request):
     containers = Container.objects.all()

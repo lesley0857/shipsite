@@ -12,10 +12,10 @@
         <section class="section contact-me" data-section="section4">
         <div class="container">
           <div class="section-heading">
-            <h2>SENDER</h2>
+            <h2>SENDER DETAILS</h2>
             <div class="line-dec"></div>
             <span>
-               Reach out to us.
+               Fill in your details
 
             </span>
           </div>
@@ -80,10 +80,10 @@
 
           <div class="container">
           <div class="section-heading">
-            <h2>RECEIVER</h2>
+            <h2>RECEIVER DETAILS</h2>
             <div class="line-dec"></div>
             <span>
-               Reach out to us.
+              Fill the Receiver's destination.
 
             </span>
           </div>
@@ -145,6 +145,9 @@
           </div>
         </div>
 
+
+           <div style="margin:8px 30px;">
+             <div><p>Click the available/deisred container vessel for shipping to Destination</p></div>
               {% for i in containers %}
               <input type="button"
                     id="{{i.id}}" value="{{i.name}}"  onclick="fn1(name='{{i.id}}', id='{{i.name}}')">
@@ -168,6 +171,7 @@
     })
     }
       </script>
+   </div>
 
       </section>
     {% endblock %}
