@@ -119,7 +119,7 @@ def report(request):
     subject = request.POST.get('subject')
     message = request.POST.get('message')
 
-    reports.objects.create(user=request.user.id,
+    reports.objects.create(user=request.user,
                           message = message,
                           subject = subject)
     messages.info(request, 'Your message has been sent successfully....')

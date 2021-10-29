@@ -49,18 +49,19 @@ https://www.tooplate.com/view/2116-blugoon
               <h4>SHIPSAFE</h4>
               <span> UK-SAFE-LOGISTICS </span>
             </div>
-            <nav class="main-nav" >
+            <nav class="main-nav">
               <ul >
                 <li><a href="{% url 'home' %}">Home</a></li>
                 <li><a href="{% url 'home' %}">About</a></li>
                 <li><a href="{% url 'pricing' %}">Pricing</a></li>
                 <li><a href="#section4">Contact</a></li>
+                   <li><a href="{% url 'customer' %}">Ocean Freight</a></li>
                  {% if user.is_authenticated %}
                   <li><a href="#parcel_tracking_id_form">Track Your Parcel/Delivery</a></li>
-                 <li><a href="{% url 'booking' %}">Book Now</a></li>
-                  <li class="btn btn-info col-md-push-6"><a href="{% url 'updatecustomer' %}">Update</a></li>
-                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
-                  <li class="btn btn-info col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
+                  <li><a href="{% url 'booking' %}">Book Now</a></li>
+                  <li class=" col-md-push-6"><a href="{% url 'updatecustomer' %}">Update</a></li>
+                  <li class=" col-md-push-6"><a href="{% url 'account_email' %}">Change E-mail</a></li>
+                  <li class=" col-md-push-6"><a href="{% url 'account_logout' %}">Sign Out</a></li>
 
                   {% else %}
                    <li><a href="{% url 'account_signup' %}">Track a Shipment</a></li>
@@ -72,21 +73,16 @@ https://www.tooplate.com/view/2116-blugoon
             </nav>
             <div class="social-network">
               <ul class="soial-icons">
+
+                  <li>       <div class="copyright-text">
+              <p> 0000810098789</p>
+            </div></li>
+
                 <li>
-                  <a href="#"><i class="fa fa-facebook"></i></a>
+                  <a href="#"><i class="fa fa-phone"></i></a>
+
                 </li>
-                <li>
-                  <a href="#"><i class="fa fa-twitter"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-linkedin"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-dribbble"></i></a>
-                </li>
-                <li>
-                  <a href="#"><i class="fa fa-rss"></i></a>
-                </li>
+
               </ul>
             </div>
             <div class="copyright-text">
@@ -105,7 +101,7 @@ https://www.tooplate.com/view/2116-blugoon
  <section class="section " >
      <div id="tabs" style="display:flex;justify-content:center;flex-wrap:no-wrap;background:#0e9992;">
           <ul>
-            <li class="btn btn-info col-md-push-6"><a href="{% url 'account_login' %}"><span>Ocean Fright</span></a></li>
+
             <li class="btn btn-info col-md-push-6"><a href="{% url 'inland' %}"><span>Land Fright</span></a></li>
            <li class="btn btn-info col-md-push-6"><a href="{% url 'aircargo' %}"><span>Air Fright</span></a></li>
 
@@ -123,12 +119,13 @@ https://www.tooplate.com/view/2116-blugoon
           </ul>
         </div>
         {% endif %}
+
        <div style="margin:5px 0px;">
        {% block extra_body %}
        {% endblock %}
        </div>
 
-      <div style="margin:5px 0px;">
+      <div style="margin:5px 5px;">
        {% block content %}
        {% endblock %}
      </div>
@@ -143,10 +140,10 @@ https://www.tooplate.com/view/2116-blugoon
                 <div class="left-text">
                   <h4>OCEAN FREIGHT TRANSPORTATION </h4>
                   <p>
-                      Book ocean freight shipping services easily with iContainers.
-                      Our platform offers you instant quotes, full price transparency and round-the-clock sea freight tracking. By using iContainers, you can:
+                      Book ocean freight shipping services easily with shipsafe.
+                      Our platform offers you instant quotes, full price transparency and round-the-clock sea freight tracking.
                   </p>
-                  <p>All photos in this template are from <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website. Blugoon HTML Template is provided by Tooplate. Class aptent taciti sociosqu ad litora torquent per conubia nostra.</p>
+                  <p> </p>
                   <div class="white-button">
 
                   </div>
@@ -167,13 +164,13 @@ https://www.tooplate.com/view/2116-blugoon
                 <div class="left-text">
                   <h4>AIR-CARGO </h4>
                   <p>MAKING YOUR FREIGHT AND LOGISTICS REQUIREMENTS SEAMLESS AND EASY WITH WORLD-CLASS CARE.</p>
-                  <p>Jetex Air Cargo Charter Service can facilitate the safe transport and careful handling of fragile and sensitive cargo, including COVID-19 vaccines. Our expert team will find the optimal aircraft for your freight requirements, based on the volume, timings and destination. Jetex provides you with a one-stop shop customized solution every time.</p>
+                  <p>shipsafe Air Cargo Charter Service can facilitate the safe transport and careful handling of fragile and sensitive cargo, including COVID-19 vaccines. Our expert team will find the optimal aircraft for your freight requirements, based on the volume, timings and destination. shipsafe provides you with a one-stop shop customized solution every time.</p>
                   <div class="white-button">
 
                   </div>
                 </div>
               </div>
-              <div class="col-md-4">
+              <div class="col-md-8">
                 <div class="right-image">
                   <img src="data:image/jpeg;base64,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" alt="Mountain Reflection" />
                 </div>
@@ -189,8 +186,8 @@ https://www.tooplate.com/view/2116-blugoon
                   <h4>Our Global Inland Services</h4>
                   <p>Every supply chain is unique, and so are your business requirements. We understand it, which is why we are committed to being an integrator of end-to-end logistics services. This implies offering different solutions that can cater to your every individual supply chain need.
 
-                    Our services – Maersk Inland Delivery and Maersk Inland Hub – are designed to address your broader logistics concerns. They are scalable according to your cargo, routes, business process or market changes.</p>
-                  <p>Your cargo journeys rarely begin or end at the ports. As a leading logistics integrator with an unrivalled global network, we offer end-to-end shipping solutions that are second-to-none. Maersk’s landside transportation connects key service hub points and major container ports with each other and the rest of the world. With rail coverage, trucking, barge and depots, you don’t need to transact with multiple suppliers or coordinate several handovers. Experience the comfort of end-to-end deliveries with just a single partner, and make your supply chain work to your competitive advantage..</p>
+                    Our services – shipsafe Inland Delivery and shipsafe Inland Hub – are designed to address your broader logistics concerns. They are scalable according to your cargo, routes, business process or market changes.</p>
+                  <p>Your cargo journeys rarely begin or end at the ports. As a leading logistics integrator with an unrivalled global network, we offer end-to-end shipping solutions that are second-to-none. shipsafe’s landside transportation connects key service hub points and major container ports with each other and the rest of the world. With rail coverage, trucking, barge and depots, you don’t need to transact with multiple suppliers or coordinate several handovers. Experience the comfort of end-to-end deliveries with just a single partner, and make your supply chain work to your competitive advantage..</p>
                   <div class="white-button">
 
                   </div>
@@ -198,9 +195,9 @@ https://www.tooplate.com/view/2116-blugoon
               </div>
               <div class="col-md-4">
                 <div class="right-image">
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
-                  <img src="{% static 'assets/images/mountain-reflection.jpg'%}" alt="Mountain Reflection" />
+                  <img src="data:image/jpeg;base64,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" alt="Mountain Reflection" />
+                  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS-EKD0EvpbGs-nkEbHMh6GBA8du9Ylq6RIZg&usqp=CAU" alt="Mountain Reflection" />
+                  <img src="https://5.imimg.com/data5/YT/QN/LU/SELLER-2661311/in-house-custom-clearance-service-500x500.jpg" alt="Mountain Reflection" />
                 </div>
               </div>
 
@@ -223,7 +220,7 @@ https://www.tooplate.com/view/2116-blugoon
                 <div id="pageintro" class="hoc clear">
                   <!-- ################################################################################################ -->
                <article >
-                <h3 class="heading">You can trust the LTL solutions ABF Freight provides to deliver the shipping services you need</h3>
+                <h3 class="heading">You can trust the solutions shipsafe Freight provides to deliver the shipping and logistic services you need</h3>
                 <div  class="image" style="height:100;>
                   <a href="#" ><img style="height:100;opacity:0.3;" src="{% static 'images/logo.jpg'%}" alt=" " /></a>
                 </div>
@@ -255,35 +252,28 @@ https://www.tooplate.com/view/2116-blugoon
           <div class="section-heading">
             <h2> Features</h2>
             <div class="line-dec"></div>
-            <span>Praesent posuere fringilla elit, non maximus tellus posuere nec. Nunc eu sapien nec est elementum sodales.</span>
+            <span>Shipsafe offers great features and solutions.</span>
           </div>
           <div class="row">
             <div class="col-md-6">
               <div class="service-item">
                 <i class="fa fa-area-chart"></i>
                 <h4>Top Performance</h4>
-                <p>Donec sit amet tempor quam. Maecenas nec aliquam leo, sed tincidunt urna.</p>
+                <p>Our innovations and technology helps increase performance and client satisfaction.</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="service-item">
                 <i class="fa fa-check-square-o"></i>
                 <h4>Trusted Service</h4>
-                <p>Etiam at porta nulla, et euismod enim. Nullam semper ipsum et dui scelerisque.</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="service-item">
-                <i class="fa fa-question-circle"></i>
-                <h4>Need Help?</h4>
-                <p>Phasellus orci leo, elementum ac risus id, euismod porta lorem. Quisque feugiat.</p>
+                <p>Our services are directed towards safety of Parcels and reducing loss of shipments</p>
               </div>
             </div>
             <div class="col-md-6">
               <div class="service-item">
                 <i class="fa fa-support"></i>
                 <h4>Quick Support</h4>
-                <p>Mauris eu est vitae erat condimentum pellentesque. Fusce vehicula nunc.</p>
+                <p>Supports are provided by our technical and operational service teams.</p>
               </div>
             </div>
           </div>
@@ -296,9 +286,9 @@ https://www.tooplate.com/view/2116-blugoon
       <section class="section my-services" data-section="section2">
         <div class="container">
           <div class="section-heading">
-            <h2> Features</h2>
+            <h2> Benefits</h2>
             <div class="line-dec"></div>
-            <span>Praesent posuere fringilla elit, non maximus tellus posuere nec. Nunc eu sapien nec est elementum sodales.</span>
+            <span>Safe Delivery in good time.</span>
           </div>
           <div class="row">
             <div class="col-md-6">
@@ -510,7 +500,7 @@ https://www.tooplate.com/view/2116-blugoon
 
 
 
-    </div>
+
 
     <!-- Scripts -->
     <!-- Bootstrap core JavaScript -->
@@ -585,5 +575,7 @@ https://www.tooplate.com/view/2116-blugoon
         checkSection();
       });
     </script>
+
+      </div>
   </body>
 </html>
