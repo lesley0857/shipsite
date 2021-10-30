@@ -214,8 +214,8 @@ class customer_view(View):
 
         elif container_items and not customer_containers:
             print(container_items[0].longitude)
-            m = folium.Map(location=[5, 8])
-            folium.Marker(location=[5,8]).add_to(m)
+            m = folium.Map(location=[55, 88])
+            folium.Marker(location=[55,88]).add_to(m)
             m = m._repr_html_()
             v='invalid value'
             context = {"container_items": container_items,

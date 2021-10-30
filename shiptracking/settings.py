@@ -29,7 +29,7 @@ SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['shipsitee.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['shipsafe.herokuapp.com','127.0.0.1']
 
 
 # Application definition
