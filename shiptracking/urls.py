@@ -18,7 +18,10 @@ from django.urls import path,include
 from django.conf import settings
 from django.conf.urls.static import static
 from tracking.views import *
+from django.conf.urls import url
 from django .contrib.admin.sites import AdminSite
+from allauth.account.views import confirm_email
+
 
 a = path('accounts/profile/', customer_view.as_view(), name='customer')
 #b = path('customer/', customer_view, name='customer')
@@ -28,12 +31,15 @@ urlpatterns = [
 
     path('adminfreak/', admin.site.urls),
     path('report/', report, name='report'),
+    url(r'^verify-email/(?P<key>\w+)/$',confirm_email,name="account_confirm_email"),
+
     path('', home_view, name='home'),
     path('inlandservices', truck_views.as_view(), name='inland'),
     path('Aircargo', aircargo_views.as_view(), name='aircargo'),
     path('accounts/signup/<str:id>/', AccountSignupView.as_view(), name='account_signup'),
     #path('accounts/login/', customer_view, name='account_login'),
     a,
+
     path('booking/', booking, name='booking'),
     path('update/', updatecustomer, name='updatecustomer'),
     path('pricing/', pricing, name='pricing'),

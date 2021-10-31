@@ -6,6 +6,7 @@ from django.core.exceptions import ObjectDoesNotExist
 from django.core.mail import EmailMessage,send_mail
 from django.utils import timezone
 from django.contrib.auth.models import Group
+from allauth.account.adapter import DefaultAccountAdapter
 from django.http import HttpResponse
 from django.contrib.sites.shortcuts import get_current_site
 from.forms import  *
@@ -23,7 +24,16 @@ from django.views.generic import View,DetailView,TemplateView
 from allauth.account.views import SignupView
 from .decorator import *
 from django.db.models.signals import post_save
+from allauth.utils import build_absolute_uri
 
+class CustomAllauthAdapter(DefaultAccountAdapter):
+    def send_mail(self,template_prefix,email,context):
+        account_confirm_email = 'accounts/confirm-email'
+        context['activate_url'] = (
+            settings.BASE_URL + account_confirm_email + context['key']
+        )
+        msg = self.render_mail(template_prefix,email,context)
+        msg.send()
 
 def res_page(request):
     # this page deletes all users that do not have a customer attached

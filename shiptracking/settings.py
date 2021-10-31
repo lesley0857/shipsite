@@ -27,8 +27,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-1#)*ho04u$k)op1+k1ylm1c4wbstcktp+8@==opej5hfnx5p58'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
-
+DEBUG = True
 ALLOWED_HOSTS = ['shipsafe.herokuapp.com','127.0.0.1']
 
 
@@ -169,7 +168,7 @@ EMAIL_PORT =  587
 EMAIL_USE_TLS = 'True'
 EMAIL_HOST_USER = 'shipsafe1978@gmail.com'
 EMAIL_HOST_PASSWORD = 'lzlrillkiokknwsg'
-#SERVER_EMAIL = ''
+SERVER_EMAIL = ''
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
 
 
@@ -179,5 +178,8 @@ ACCOUNT_EMAIL_REQUIRED=True
 SOCIALACCOUNT_AUTO_SIGNUP = True
 ACCOUNT_EMAIL_VERIFICATION="mandatory"
 
-
+ACCOUNT_ADAPTER = 'tracking.views.CustomAllauthAdapter'
+BASE_URL = 'shipsafe.herokuapp.com/'
+ACCOUNT_CONFIRM_EMAIL_ON_GET = True
+#CUSTOM_ACCOUNT_CONFIRM_EMAIL_URL = '/verifyemail/?key={0}'
 
