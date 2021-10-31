@@ -28,7 +28,7 @@ from allauth.utils import build_absolute_uri
 
 class CustomAllauthAdapter(DefaultAccountAdapter):
     def send_mail(self,template_prefix,email,context):
-        account_confirm_email = 'accounts/confirm-email'
+        account_confirm_email = 'accounts/confirm-email/'
         context['activate_url'] = (
             settings.BASE_URL + account_confirm_email + context['key']
         )

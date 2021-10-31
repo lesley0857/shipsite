@@ -31,7 +31,7 @@ urlpatterns = [
 
     path('adminfreak/', admin.site.urls),
     path('report/', report, name='report'),
-    url(r'^verify-email/(?P<key>\w+)/$',confirm_email,name="account_confirm_email"),
+    url(r'^shipsafe.herokuapp.com/accounts/confirm-email/(?P<key>\w+)/$',confirm_email,name="account_confirm_email"),
 
     path('', home_view, name='home'),
     path('inlandservices', truck_views.as_view(), name='inland'),
